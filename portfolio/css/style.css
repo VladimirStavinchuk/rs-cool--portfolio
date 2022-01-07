@@ -93,24 +93,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
-h1 {
-  font-family: "Merriweather", serif;
-  font-size: 60px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: green;
+/*---------- visually-hidden ----------*/
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-p {
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #0d5c63;
+/*---------- end visually-hidden ----------*/
+/* 
+        порядок определения стилей:
+1 позиционирование
+2 блочная модель (размеры, отступы)
+3 типографика (свойства шрифта)
+4 оформление (цвет фона, тень)
+5 анимация 
+*/
+/*---------- general properties ----------*/
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
+
+.section {
+  background-color: #000000;
+}
+
+.logo {
+  width: 2%;
+}
+
+/*---------- end general properties ----------*/
+/*---------- header ----------*/
+.nav__link,
+.nav__link:visited {
+  font-size: 14px;
+}
+
+/*---------- end header ----------*/
+/*---------- footer ----------*/
+.footer {
+  margin-top: 15px;
+  padding: 10px 0px;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer__logo-img {
+  right: 0;
+  width: 60px;
+}
+
+/*---------- end footer ----------*/
