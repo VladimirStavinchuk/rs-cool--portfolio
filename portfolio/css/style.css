@@ -181,6 +181,35 @@ body {
   color: #ffffff;
 }
 
+.section-title {
+  display: flex;
+  flex-direction: row;
+  font-family: "Merriweather", serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: center;
+  color: #bdae82;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid #bdae82;
+  margin: auto;
+  margin-right: 370px;
+  margin-left: 20px;
+}
+
+.section-title::before {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid #bdae82;
+  margin: auto;
+  margin-right: 20px;
+  margin-left: 370px;
+}
+
 .btn {
   width: 220px;
   height: 55px;
