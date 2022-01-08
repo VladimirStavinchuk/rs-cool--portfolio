@@ -181,9 +181,14 @@ body {
   color: #ffffff;
 }
 
-.section-title {
+.section {
+  margin-bottom: 100px;
+}
+
+.section__title {
   display: flex;
   flex-direction: row;
+  margin-bottom: 60px;
   font-family: "Merriweather", serif;
   font-size: 40px;
   font-weight: 700;
@@ -192,7 +197,7 @@ body {
   color: #bdae82;
 }
 
-.section-title::after {
+.section__title::after {
   content: "";
   flex: 1 1;
   border-bottom: 2px solid #bdae82;
@@ -201,7 +206,7 @@ body {
   margin-left: 20px;
 }
 
-.section-title::before {
+.section__title::before {
   content: "";
   flex: 1 1;
   border-bottom: 2px solid #bdae82;
@@ -255,6 +260,7 @@ body {
   float: left;
   width: 50px;
   height: 40px;
+  cursor: pointer;
 }
 
 .header-nav {
@@ -310,6 +316,7 @@ body {
 .hero {
   height: 910px;
   padding-top: 160px;
+  margin-bottom: 10px;
   background-image: url(../assets/img/background/bg.jpg);
   background-position: center -90px;
   background-repeat: no-repeat;
@@ -334,6 +341,32 @@ body {
 
 /*---------- end section hero ----------*/
 /*---------- section skills ----------*/
+.skills-wrap {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.skills-wrap__item {
+  flex: 0 0 280px;
+}
+
+.skills-wrap__img {
+  margin-bottom: 50px;
+  height: 50px;
+}
+
+.skills-wrap__title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.skills-wrap__text {
+  font-size: 18px;
+  line-height: 36px;
+}
+
 /*---------- end section skills ----------*/
 /*---------- section portfolio ----------*/
 /*---------- end section portfolio ----------*/
