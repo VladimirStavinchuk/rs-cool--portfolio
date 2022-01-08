@@ -93,6 +93,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
+/* 
+    порядок определения стилей:
+1 позиционирование
+2 блочная модель (размеры, отступы)
+3 типографика (свойства шрифта)
+4 оформление (цвет фона, тень)
+5 анимация 
+*/
 /*---------- visually-hidden ----------*/
 .visually-hidden {
   position: absolute;
@@ -109,43 +117,180 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*---------- end visually-hidden ----------*/
-/* 
-        порядок определения стилей:
-1 позиционирование
-2 блочная модель (размеры, отступы)
-3 типографика (свойства шрифта)
-4 оформление (цвет фона, тень)
-5 анимация 
-*/
+/*---------- временные ----------*/
+header,
+main,
+footer {
+  border: 1px solid red;
+}
+
+section,
+nav {
+  border: 1px solid green;
+}
+
+.header-nav > * {
+  border: 1px solid yellow;
+}
+
+.section-item a {
+  color: #829985;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+.section-item a:hover {
+  color: #4d2323;
+}
+
+body {
+  background-color: #000;
+}
+
+/*---------- end временые ----------*/
 /*---------- general properties ----------*/
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  text-align: left;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
+  color: #ffffff;
 }
 
-.section {
-  background-color: #000000;
+.btn {
+  width: 220px;
+  height: 55px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #bdae82;
+  color: #000000;
 }
 
-.logo {
-  width: 2%;
+.btn:hover {
+  color: #ffffff;
+}
+
+.btn:active {
+  font-weight: 700;
+}
+
+.link,
+.link:visited {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 50px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.link:hover {
+  color: #bdae82;
 }
 
 /*---------- end general properties ----------*/
 /*---------- header ----------*/
-.nav__link,
-.nav__link:visited {
-  font-size: 14px;
+.header {
+  height: 90px;
+  background-image: url(../assets/img/background/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+
+.logo {
+  float: left;
+  width: 50px;
+  height: 40px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav__list,
+.language__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__list {
+  padding-right: 31px;
+}
+
+.nav__link {
+  line-height: 50px;
+}
+
+.nav__link:not(last-child) {
+  padding-right: 30px;
+}
+
+.language__item:not(last-child) {
+  padding-right: 9px;
+}
+
+.language__link,
+.language__item {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 50px;
+  text-align: center;
+}
+
+.language__link:hover {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.language__link_active,
+.language__link_active:visited {
+  color: #bdae82;
 }
 
 /*---------- end header ----------*/
-/*---------- footer ----------*/
-.footer {
-  margin-top: 15px;
-  padding: 10px 0px;
+/*---------- section hero ----------*/
+.hero {
+  height: 910px;
+  background-image: url(../assets/img/background/bg.jpg);
+  background-position: center -90px;
+  background-repeat: no-repeat;
 }
 
+.main__inner {
+  width: 470px;
+  padding-left: 80px;
+}
+
+.main__title {
+  font-family: "Merriweather", serif;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 120px;
+}
+
+/*---------- end section hero ----------*/
+/*---------- section skills ----------*/
+/*---------- end section skills ----------*/
+/*---------- section portfolio ----------*/
+/*---------- end section portfolio ----------*/
+/*---------- section video ----------*/
+/*---------- end section video ----------*/
+/*---------- section price ----------*/
+/*---------- end section price ----------*/
+/*---------- section contacts ----------*/
+/*---------- end section contacts ----------*/
+/*---------- footer ----------*/
 .footer__inner {
   display: flex;
   justify-content: space-around;

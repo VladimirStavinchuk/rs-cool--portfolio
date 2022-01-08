@@ -23,18 +23,19 @@
 
   <header class="header">
     <div class="container">
-      <nav>
-        <img src="./assets/img/icon/logo.svg" class="logo" alt="logo">
+      <img src="./assets/img/icon/logo.svg" class="logo" alt="logo">
+      <nav class="header-nav">
         <ul class="nav__list">
-          <li class="nav__item"><a href="#id-skills" class="nav__link">Skills</a></li>
-          <li class="nav__item"><a href="#id-portfolio" class="nav__link">Portfolio</a></li>
-          <li class="nav__item"><a href="#id-video" class="nav__link">Video</a></li>
-          <li class="nav__item"><a href="#id-price" class="nav__link">Price</a></li>
-          <li class="nav__item"><a href="#id-contacts" class="nav__link">Contacts</a></li>
+          <li class="nav__item"><a href="#id-skills" class="link nav__link">Skills</a></li>
+          <li class="nav__item"><a href="#id-portfolio" class="link nav__link">Portfolio</a></li>
+          <li class="nav__item"><a href="#id-video" class="link nav__link">Video</a></li>
+          <li class="nav__item"><a href="#id-price" class="link nav__link">Price</a></li>
+          <li class="nav__item"><a href="#id-contacts" class="link">Contacts</a></li>
         </ul>
         <ul class="language__list">
-          <li class="language__item">en</li>
-          <li class="language__item">ru</li>
+          <li class="language__item"><a href="#" class="link language__link language__link_active">en</a></li>
+          <li class="language__item">/</li>
+          <li class="language__item"><a href="#" class="link language__link">ru</a></li>
         </ul>
       </nav>
     </div>
@@ -43,8 +44,15 @@
   <main class="main">
     <section class="hero">
       <div class="container">
-        <h1 class="main-title">Alexa Rise Portfolio Портфолио</h1>
-        <p>Просто texst</p>
+        <div class="main__inner">
+          <h1 class="main__title">Alexa Rise</h1>
+          <p class="main__text">Save sincere emotions, romantic feelings and happy moments of life together with
+            professional
+            photographer Alexa Rise</p>
+          <button class="btn btn_main">
+            Hire me
+          </button>
+        </div>
       </div>
     </section>
 
@@ -88,7 +96,7 @@
         <p><a href="https://github.com/VladimirStavinchuk" title="Vladimir Stavinchuk" target="_blank">Vladimir
             Stavinchuk</a> &copy; 2021
         </p>
-        <p><a href="https://rs.school/js/" target="_blank"> <img class="footer__logo-img"
+        <p><a class="link" href="https://rs.school/js/" target="_blank"> <img class="footer__logo-img"
               src=" assets/img/rs_school_js.svg" alt="logo rs-school"></a>
         </p>
       </div>
