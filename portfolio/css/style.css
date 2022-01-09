@@ -117,6 +117,15 @@ h6 {
 4 оформление (цвет фона, тень)
 5 анимация 
 */
+/* 
+• порядок определения атрибутов:
+1. class
+2. id, name
+3. data-*
+4. scr, for, type, href, value
+5. title, alt
+6. role, aria-*
+*/
 /*---------- visually-hidden ----------*/
 .visually-hidden {
   position: absolute;
@@ -306,8 +315,8 @@ body {
   color: #ffffff;
 }
 
-.language__link_active,
-.language__link_active:visited {
+.language__link.active,
+.language__link.active:visited {
   color: #bdae82;
 }
 
@@ -370,6 +379,37 @@ body {
 
 /*---------- end section skills ----------*/
 /*---------- section portfolio ----------*/
+.portfolio-tabs {
+  display: flex;
+  margin-bottom: 60px;
+  justify-content: center;
+  gap: 5px;
+}
+
+.portfolio-tabs__btn {
+  border: 2px solid #bdae82;
+  color: #bdae82;
+  background-color: transparent;
+}
+
+.portfolio-tabs__btn.active {
+  border: 2px solid #bdae82;
+  color: #000000;
+  background-color: #bdae82;
+}
+
+.portfolio-photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.portfolio-img {
+  width: 450px;
+  height: 560px;
+}
+
 /*---------- end section portfolio ----------*/
 /*---------- section video ----------*/
 /*---------- end section video ----------*/
