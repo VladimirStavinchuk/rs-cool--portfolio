@@ -142,31 +142,6 @@ h6 {
 
 /*---------- end visually-hidden ----------*/
 /*---------- временные ----------*/
-header,
-main,
-footer {
-  border: 1px solid red;
-}
-
-section,
-nav {
-  border: 1px solid green;
-}
-
-.header-nav > * {
-  border: 1px solid yellow;
-}
-
-.section-item a {
-  color: #829985;
-  text-decoration: none;
-  transition: color 0.5s;
-}
-
-.section-item a:hover {
-  color: #4d2323;
-}
-
 /*---------- end временые ----------*/
 /*---------- general properties ----------*/
 body {
@@ -180,13 +155,13 @@ body {
 }
 
 .container {
-  min-width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
   color: #ffffff;
 }
 
-.section {
+.section:not(:last-of-type) {
   margin-bottom: 100px;
 }
 
@@ -469,6 +444,103 @@ body {
 
 /*---------- end section price ----------*/
 /*---------- section contacts ----------*/
+.contacts .container {
+  margin-bottom: 0px;
+  padding-top: 60px;
+  padding-bottom: 195px;
+  background: url(../assets/img/background/contacts.jpg);
+  background-size: auto 700px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.contacts-wraper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contacts-inner {
+  flex: 0 0 450px;
+}
+
+.contacts__title {
+  font-family: "Merriweather", serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 80px;
+  color: #bdae82;
+}
+
+.contacts-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form__item {
+  height: 50px;
+  padding: 5px 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  color: #ffffff;
+  border: 2px solid #bdae82;
+  background-color: transparent;
+}
+
+.form__item:hover {
+  cursor: pointer;
+}
+
+.form__item:focus {
+  border: 3px solid #ffffff;
+}
+
+.form__item::-moz-placeholder {
+  font-family: inherit;
+  color: #bdae82;
+  font-size: 20px;
+}
+
+.form__item:-ms-input-placeholder {
+  font-family: inherit;
+  color: #bdae82;
+  font-size: 20px;
+}
+
+.form__item::placeholder {
+  font-family: inherit;
+  color: #bdae82;
+  font-size: 20px;
+}
+
+.form__item:focus::-moz-placeholder {
+  font-size: 18px;
+  color: #000000;
+}
+
+.form__item:focus:-ms-input-placeholder {
+  font-size: 18px;
+  color: #000000;
+}
+
+.form__item:focus::placeholder {
+  font-size: 18px;
+  color: #000000;
+}
+
+.form__item_textarea {
+  height: 100px;
+  resize: none;
+}
+
+.contacts-form__btn {
+  margin-top: 10px;
+  line-height: 40px;
+}
+
 /*---------- end section contacts ----------*/
 /*---------- footer ----------*/
 .footer__inner {
