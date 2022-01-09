@@ -202,7 +202,7 @@ body {
   flex: 1 1;
   border-bottom: 2px solid #bdae82;
   margin: auto;
-  margin-right: 370px;
+  margin-right: 28.5%;
   margin-left: 20px;
 }
 
@@ -212,7 +212,7 @@ body {
   border-bottom: 2px solid #bdae82;
   margin: auto;
   margin-right: 20px;
-  margin-left: 370px;
+  margin-left: 28.5%;
 }
 
 .btn {
@@ -344,6 +344,7 @@ body {
 .skills-wrap {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   text-align: center;
 }
 
