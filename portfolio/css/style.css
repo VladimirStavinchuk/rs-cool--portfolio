@@ -168,10 +168,6 @@ nav {
   color: #4d2323;
 }
 
-body {
-  background-color: #000;
-}
-
 /*---------- end временые ----------*/
 /*---------- general properties ----------*/
 body {
@@ -181,6 +177,7 @@ body {
   font-weight: 400;
   line-height: 40px;
   text-align: left;
+  background-color: #000000;
 }
 
 .container {
@@ -412,6 +409,21 @@ body {
 
 /*---------- end section portfolio ----------*/
 /*---------- section video ----------*/
+.video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: auto;
+}
+
+.video__player-hover {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
 /*---------- end section video ----------*/
 /*---------- section price ----------*/
 /*---------- end section price ----------*/
