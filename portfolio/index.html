@@ -164,7 +164,8 @@
             <form class="form contacts-form" action="#">
               <input class="form__item" type="email" placeholder="E-mail">
               <input class="form__item" type="tel" placeholder="Phone">
-              <input class="form__item form__item_textarea" type="textarea" placeholder="Message">
+              <textarea class="form__item form__item_textarea" name="form__item_textarea" id="contacts-textarea"
+                cols="30" rows="10" placeholder="Message"></textarea>
               <button class="btn contacts-form__btn" action="#">Send message</button>
             </form>
           </div>
@@ -176,12 +177,24 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <p><a href="https://github.com/VladimirStavinchuk" title="Vladimir Stavinchuk" target="_blank">Vladimir
-            Stavinchuk</a> &copy; 2021
-        </p>
-        <p><a class="link" href="https://rs.school/js/" target="_blank"> <img class="footer__logo-img"
-              src=" assets/img/rs_school_js.svg" alt="logo rs-school"></a>
-        </p>
+        <span class="copyright"><a class="link link__footer" href="https://github.com/VladimirStavinchuk"
+            title=">&copy; 2022 github Vladimir Stavinchuk" target="_blank">&copy; 2022 github</a>
+        </span>
+        <span class="rsschool"><a class="link link__footer" href="https://rs.school/js/" title="Vladimir Stavinchuk"
+            target="_blank">Rolling
+            Scopes School</a>
+        </span>
+
+        <div class="social-list">
+          <a class="link social-link" href="https://www.instagram.com/" target="_blank"><img
+              src="./assets/img/icon/inst 1.svg" alt="instagram.com"></a>
+          <a class="link social-link" href="https://www.facebook.com/" target="_blank"><img
+              src="./assets/img/icon/fb 1.svg" alt="facebook.com"></a>
+          <a class="link social-link" href="https://twitter.com/" target="_blank"><img src="./assets/img/icon/tw 1.svg"
+              alt="twitter.com"></a>
+          <a class="link social-link" href="https://www.pinterest.ru/" target="_blank"><img
+              src="./assets/img/icon/pinterest 1.svg" alt="pinterest.ru"></a>
+        </div>
       </div>
     </div>
   </footer>

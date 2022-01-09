@@ -141,8 +141,6 @@ h6 {
 }
 
 /*---------- end visually-hidden ----------*/
-/*---------- временные ----------*/
-/*---------- end временые ----------*/
 /*---------- general properties ----------*/
 body {
   font-family: "Inter", sans-serif;
@@ -545,12 +543,19 @@ body {
 /*---------- footer ----------*/
 .footer__inner {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  vertical-align: Top;
+  color: #ffffff;
 }
 
-.footer__logo-img {
-  right: 0;
-  width: 60px;
+.social-list {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 15px;
+  gap: 20px;
 }
 
 /*---------- end footer ----------*/
