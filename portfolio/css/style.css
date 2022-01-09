@@ -56,7 +56,6 @@ body {
   width: 100%;
   font-size: 100%;
   line-height: 1;
-  font-size: 14px;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -181,7 +180,7 @@ body {
 }
 
 .container {
-  max-width: 1440px;
+  min-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
   color: #ffffff;
@@ -426,6 +425,48 @@ body {
 
 /*---------- end section video ----------*/
 /*---------- section price ----------*/
+.price-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.price__item {
+  flex: 0 0 450px;
+  padding: 43px 0;
+  border: 2px solid #bdae82;
+}
+
+.price__title {
+  padding-bottom: 20px;
+  font-family: "Merriweather", serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.price__value {
+  display: block;
+  padding-bottom: 20px;
+  font-family: "Merriweather", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 48px;
+  color: #bdae82;
+}
+
+.price__item-description {
+  display: block;
+  font-size: 18px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.btn__price {
+  margin-top: 40px;
+}
+
 /*---------- end section price ----------*/
 /*---------- section contacts ----------*/
 /*---------- end section contacts ----------*/
