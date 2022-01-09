@@ -241,6 +241,10 @@ body {
   cursor: pointer;
 }
 
+.logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
 .header-nav {
   display: flex;
   justify-content: flex-end;
@@ -394,6 +398,10 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
+}
+
+.video__player-hover:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 /*---------- end section video ----------*/
@@ -556,6 +564,10 @@ body {
   align-items: center;
   margin-top: 15px;
   gap: 20px;
+}
+
+.social-link__icon:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 /*---------- end footer ----------*/
