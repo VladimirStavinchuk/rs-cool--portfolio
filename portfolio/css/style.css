@@ -187,19 +187,19 @@ body {
 .section__title::after {
   content: "";
   flex: 1 1;
-  border-bottom: 2px solid #bdae82;
+  border-bottom: 3px solid #bdae82;
   margin: auto;
-  margin-right: 28.5%;
+  margin-right: 25%;
   margin-left: 20px;
 }
 
 .section__title::before {
   content: "";
   flex: 1 1;
-  border-bottom: 2px solid #bdae82;
+  border-bottom: 3px solid #bdae82;
   margin: auto;
   margin-right: 20px;
-  margin-left: 28.5%;
+  margin-left: 25%;
 }
 
 .btn {
@@ -253,10 +253,10 @@ body {
 }
 
 .logo {
-  margin-top: 25px;
+  margin-top: 20px;
   float: left;
   width: 50px;
-  height: 40px;
+  height: 50px;
   cursor: pointer;
   transition: 0.3s;
   -webkit-transition: 0.3s;
@@ -291,10 +291,10 @@ body {
 }
 
 .nav__link:not(last-child) {
-  padding-right: 30px;
+  padding-right: 31px;
 }
 
-.language__item:not(last-child) {
+.language__item:not(:last-of-type) {
   padding-right: 9px;
 }
 
@@ -334,8 +334,8 @@ body {
 }
 
 .main__inner {
-  width: 470px;
-  padding-left: 80px;
+  width: 525px;
+  padding-left: 60px;
 }
 
 .main__title {
@@ -348,6 +348,13 @@ body {
 
 .main__text {
   padding-bottom: 25px;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 /*---------- end section hero ----------*/
@@ -357,6 +364,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   text-align: center;
+  padding: 0 20px 10px;
 }
 
 .skills-wrap__item {
@@ -414,22 +422,24 @@ body {
 
 /*---------- end section portfolio ----------*/
 /*---------- section video ----------*/
-.video {
+.video-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
-  height: auto;
 }
 
-.video__player-hover {
+.video__player-hover-btn {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  background-color: transparent;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
 }
 
-.video__player-hover:hover {
+.video__player-hover-btn:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
@@ -480,7 +490,7 @@ body {
 /*---------- end section price ----------*/
 /*---------- section contacts ----------*/
 .contacts .container {
-  margin-bottom: 0px;
+  margin-top: -3px;
   padding-top: 60px;
   padding-bottom: 195px;
   background: url(../assets/img/background/contacts.jpg);
@@ -499,6 +509,7 @@ body {
 }
 
 .contacts__title {
+  margin-bottom: 40px;
   font-family: "Merriweather", serif;
   font-size: 40px;
   font-weight: 700;
@@ -514,7 +525,6 @@ body {
 
 .form__item {
   height: 50px;
-  padding: 5px 20px;
   font-family: "Inter", sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -527,10 +537,6 @@ body {
 
 .form__item:hover {
   cursor: pointer;
-}
-
-.form__item:focus {
-  border: 3px solid #ffffff;
 }
 
 .form__item::-moz-placeholder {
@@ -585,6 +591,14 @@ body {
   height: 150px;
   vertical-align: Top;
   color: #ffffff;
+}
+
+.copyright {
+  word-spacing: 15px;
+}
+
+.rsschool {
+  padding-left: 17px;
 }
 
 .social-list {
