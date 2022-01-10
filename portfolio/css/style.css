@@ -142,6 +142,15 @@ h6 {
 
 /*---------- end visually-hidden ----------*/
 /*---------- general properties ----------*/
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 body {
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -200,6 +209,11 @@ body {
   text-align: center;
   background-color: #bdae82;
   color: #000000;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
 }
 
 .btn:hover {
@@ -222,6 +236,11 @@ body {
 
 .link:hover {
   color: #bdae82;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
 }
 
 /*---------- end general properties ----------*/
@@ -239,6 +258,11 @@ body {
   width: 50px;
   height: 40px;
   cursor: pointer;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
 }
 
 .logo:hover {
@@ -281,6 +305,11 @@ body {
   font-weight: 700;
   line-height: 50px;
   text-align: center;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
 }
 
 .language__link:hover {
