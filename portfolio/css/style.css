@@ -166,6 +166,7 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   color: #ffffff;
+  overflow: hidden;
 }
 
 .section:not(:last-of-type) {
@@ -333,11 +334,6 @@ body {
   -o-transition: 0.3s;
 }
 
-.language__link:hover {
-  font-weight: 400;
-  color: #ffffff;
-}
-
 .language__link.active,
 .language__link.active:visited {
   color: #bdae82;
@@ -421,6 +417,10 @@ body {
   border: 2px solid #bdae82;
   color: #bdae82;
   background-color: transparent;
+}
+
+.portfolio-tabs__btn:hover {
+  border: 2px solid #ffffff;
 }
 
 .portfolio-tabs__btn.active {
