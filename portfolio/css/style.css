@@ -305,7 +305,7 @@ body {
 }
 
 .nav__list {
-  padding-right: 31px;
+  padding-right: 20px;
 }
 
 .nav__link {
@@ -313,9 +313,10 @@ body {
   line-height: 50px;
 }
 
-.nav__link:not(last-child) {
+.nav__link {
   display: block;
-  padding-right: 31px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .language__item:not(:last-of-type) {
@@ -680,6 +681,11 @@ body {
 /*---------- end footer ----------*/
 /*================================== ADAPTIVE =================================================*/
 /*+++++++++++ screen 768 ++++++++++++*/
+@media (max-width: 1440px) {
+  .skills-items {
+    justify-content: space-around;
+  }
+}
 /*---------- footer ----------*/
 /*---------- end footer ----------*/
 /*---------- footer ----------*/
