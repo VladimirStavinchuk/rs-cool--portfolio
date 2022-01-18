@@ -305,7 +305,7 @@ body {
 }
 
 .nav__list {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .nav__link {
@@ -319,12 +319,10 @@ body {
   padding-left: 15px;
 }
 
-.language__item:not(:last-of-type) {
-  padding-right: 9px;
-}
-
 .language__link,
 .language__item {
+  display: block;
+  padding: 0 4px;
   font-family: Inter;
   font-size: 20px;
   font-weight: 700;
@@ -335,6 +333,11 @@ body {
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
+}
+
+.language__link,
+.language__item:last-of-type {
+  padding-right: 0;
 }
 
 .language__item .language__link.active,
