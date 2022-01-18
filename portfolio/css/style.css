@@ -309,10 +309,12 @@ body {
 }
 
 .nav__link {
+  display: block;
   line-height: 50px;
 }
 
 .nav__link:not(last-child) {
+  display: block;
   padding-right: 31px;
 }
 
@@ -334,9 +336,10 @@ body {
   -o-transition: 0.3s;
 }
 
-.language__link.active,
-.language__link.active:visited {
+.language__item .language__link.active,
+.language__item .language__link.active:visited {
   color: #bdae82;
+  cursor: default;
 }
 
 /*---------- end header ----------*/
@@ -427,6 +430,7 @@ body {
   color: #000000;
   background-color: #bdae82;
   border: none;
+  cursor: default;
 }
 
 .portfolio-tabs__btn.active:active {
@@ -673,4 +677,16 @@ body {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
+/*---------- end footer ----------*/
+/*================================== ADAPTIVE =================================================*/
+/*+++++++++++ screen 768 ++++++++++++*/
+/*---------- footer ----------*/
+/*---------- end footer ----------*/
+/*---------- footer ----------*/
+/*---------- end footer ----------*/
+/*---------- footer ----------*/
+/*---------- end footer ----------*/
+/*---------- footer ----------*/
+/*---------- end footer ----------*/
+/*---------- footer ----------*/
 /*---------- end footer ----------*/

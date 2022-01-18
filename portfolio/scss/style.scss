@@ -1,4 +1,4 @@
-// todo переделать верхнее меню full screen, чтобы область кликабельности ссылок была равномерна по бокам от текста и по высоте выше текста. В меню cursor при смене языка доделать
+// todo: переделать верхнее меню full screen, чтобы область кликабельности ссылок была равномерна по бокам от текста и по высоте стала выше текста.
 
 @font-face {
   font-family: Merriweather;
@@ -245,7 +245,7 @@ body {
 .language__item .language__link.active,
 .language__item .language__link.active:visited {
   color: $color-gold;
-  cursor: unset;
+  cursor: default;
 }
 /*---------- end header ----------*/
 
@@ -336,7 +336,7 @@ body {
   color: $color-dark;
   background-color: $color-gold;
   border: none;
-  cursor: unset;
+  cursor: default;
 }
 
 .portfolio-tabs__btn.active:active {
