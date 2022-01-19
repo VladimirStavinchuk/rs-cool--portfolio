@@ -1,4 +1,4 @@
-// todo: переделать верхнее меню full screen, чтобы область кликабельности ссылок была равномерна по бокам от текста и по высоте стала выше текста.
+// todo: После сдачи (когда для себябуду макет переделывать) при экранах 768 и меньше сделать верхнее меню сверху постоянно или стрелочку вверху для его вызова.
 
 @font-face {
   font-family: Merriweather;
@@ -169,6 +169,10 @@ body {
 /*---------- end general properties ----------*/
 
 /*---------- header ----------*/
+.burger-menu {
+  display: none;
+}
+
 .header {
   height: 90px;
   background-image: url(../assets/img/background/bg.jpg);
@@ -367,6 +371,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 
 .video__player-hover-btn {
@@ -588,6 +593,99 @@ body {
 
   /*---------- end footer ----------*/
   /*---------- footer ----------*/
+}
+
+@media (max-width: 768px) {
+  /*---------- burger menu ----------*/
+  .nav__list {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  .menu-btn > span,
+  .menu-btn > span::before,
+  .menu-btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+    transition-duration: 0.25s;
+  }
+  .menu-btn > span::before {
+    content: "";
+    top: -8px;
+  }
+  .menu-btn > span::after {
+    content: "";
+    top: 8px;
+  }
+
+  .menubox {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: #eceff1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+    transition-duration: 0.25s;
+  }
+
+  .menu-item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    // font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    // text-decoration: none;
+    transition-duration: 0.25s;
+  }
+  .menu-item:hover {
+    background-color: #cfd8dc;
+  }
+
+  #menu-toggle {
+    opacity: 0;
+  }
+
+  #menu-toggle:checked ~ .menu-btn > span {
+    transform: rotate(45deg);
+  }
+  #menu-toggle:checked ~ .menu-btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  #menu-toggle:checked ~ .menu-btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu-toggle:checked ~ .menubox {
+    visibility: visible;
+    right: 0;
+  }
+  /*---------- end burger menu ----------*/
 }
 
 /*---------- end footer ----------*/
