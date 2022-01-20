@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/* // todo: После сдачи (когда для себябуду макет переделывать)
+1) при экранах 768 и меньше сделать плашку с верхним меню сверху постоянную или стрелочку вверху для его вызова https://www.youtube.com/watch?v=zs1r8yafTE8.
+2) убрать скрин 767
+3 ) переверстать футер
+*/
 @font-face {
   font-family: Merriweather;
   font-style: normal;
@@ -379,12 +384,10 @@ body {
 
 .main__text {
   padding-bottom: 25px;
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
   line-height: 40px;
-  letter-spacing: 0em;
   text-align: left;
 }
 
@@ -394,8 +397,8 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  text-align: center;
   padding: 0 20px 10px;
+  text-align: center;
 }
 
 .skills-wrap__item {
@@ -694,12 +697,13 @@ body {
 }
 /*---------- end footer ----------*/
 /*================================== ADAPTIVE =================================================*/
-/*+++++++++++++++++++++++ screen 768 ++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++ screen 768 - 1440 ++++++++++++++++++++++++++++*/
 @media (max-width: 1440px) {
   /*---------- skills ----------*/
   .skills-wrap__item {
     justify-content: space-around;
     min-width: 50%;
+    margin: 0 auto;
   }
 
   .skills-wrap__text {
@@ -719,10 +723,184 @@ body {
     margin: 0 auto;
   }
 
+  .video__player {
+    min-width: 768px;
+    height: auto;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+
   /*---------- end footer ----------*/
   /*---------- footer ----------*/
 }
+/*+++++++++++++++++++++++ screen 480 - 768 ++++++++++++++++++++++++++++*/
 @media (max-width: 768px) {
+  .section__title {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 65px;
+  }
+
+  .section__title::after,
+.section__title::before {
+    border-bottom: 2px solid #bdae82;
+  }
+
+  .hero,
+.header {
+    background-size: auto 620px;
+  }
+
+  .hero {
+    background-position: -5px -30px;
+    height: 590px;
+    margin-top: -90px;
+    margin-bottom: 100px;
+  }
+
+  .logo {
+    margin-left: 40px;
+  }
+
+  .language__list {
+    padding-right: 110px;
+  }
+
+  .language__link {
+    display: block;
+    padding: 0 8px;
+  }
+
+  .language__link:last-of-type {
+    padding-right: 7px;
+  }
+
+  .main__inner {
+    width: 430px;
+    padding-left: 40px;
+    margin-top: 8px;
+  }
+
+  .main__title {
+    padding-bottom: 20px;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 64px;
+  }
+
+  .main__text {
+    padding-bottom: 60px;
+    font-family: "Inter", sans-serif;
+    line-height: 24px;
+  }
+
+  .skills-wrap {
+    margin: 0 auto;
+    padding-bottom: 3px;
+  }
+
+  .skills-wrap__item {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .skills-wrap__img {
+    margin-bottom: 31px;
+  }
+
+  .skills-wrap__title {
+    margin-right: 5px;
+  }
+
+  .skills-wrap__text {
+    width: 285px;
+    margin-left: 17px;
+    line-height: 21.78px;
+    padding-bottom: 76px;
+  }
+
+  .portfolio-tabs {
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+
+  .video__player {
+    margin: 5px 15px 1px 57px;
+    min-width: 810px;
+    height: 418px;
+  }
+
+  .video__player-hover-img {
+    margin-right: 5px;
+    margin-top: 7px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .price-wrap {
+    padding-top: 4px;
+  }
+
+  .price__item {
+    flex-basis: 418px;
+    margin-bottom: 50px;
+    padding: 41px 0;
+    border: 2px solid #bdae82;
+  }
+
+  .price .container {
+    margin-bottom: 10px;
+  }
+
+  .contacts .container {
+    margin-top: -70px;
+    padding-bottom: 111px;
+    background-position: -233px 0px;
+    background-size: auto 600px;
+  }
+
+  .contacts-inner {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contacts__title {
+    font-size: 32px;
+    line-height: 64px;
+  }
+
+  .contacts-form__btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    padding: 20px 0;
+    height: 190px;
+  }
+
+  .copyright .link__footer {
+    line-height: 24px;
+  }
+
+  .rsschool .link__footer {
+    line-height: 24px;
+  }
+
+  .rsschool {
+    padding-left: 0px;
+  }
+  .rsschool .rsschool {
+    margin-top: -5px;
+    padding-left: 0px;
+  }
+
+  .social-list .link__footer {
+    gap: 20px;
+  }
+
   /*---------- burger menu ----------*/
   .nav__list {
     display: none;
@@ -736,10 +914,10 @@ body {
     display: flex;
     align-items: center;
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 26px;
-    height: 26px;
+    top: 30px;
+    right: 65px;
+    width: 50px;
+    height: 28px;
     cursor: pointer;
     z-index: 100;
   }
@@ -750,19 +928,19 @@ body {
     display: block;
     position: absolute;
     width: 100%;
-    height: 2px;
-    background-color: #616161;
+    height: 4px;
+    background-color: #ffffff;
     transition-duration: 0.25s;
   }
 
   .menu-btn > span::before {
     content: "";
-    top: -8px;
+    top: -13px;
   }
 
   .menu-btn > span::after {
     content: "";
-    top: 8px;
+    top: 13px;
   }
 
   .menubox {
@@ -776,7 +954,7 @@ body {
     margin: 0;
     padding: 80px 0;
     list-style: none;
-    background-color: #eceff1;
+    background-color: #000000;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
     transition-duration: 0.25s;
   }
@@ -819,8 +997,13 @@ body {
 
   /*---------- end burger menu ----------*/
 }
-/*---------- end footer ----------*/
-/*---------- footer ----------*/
-/*---------- end footer ----------*/
-/*---------- footer ----------*/
-/*---------- end footer ----------*/
+/*+++++++++++++++++++++++ screen 768 - 767 ++++++++++++++++++++++++++++*/
+@media (max-width: 767px) {
+  .video__player {
+    margin-top: 5px;
+    min-width: 480px;
+    height: auto;
+  }
+}
+/*+++++++++++++++++++++++ screen 320 - 480 ++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++ screen 320 ++++++++++++++++++++++++++++*/
