@@ -566,6 +566,7 @@ body {
 @media (any-pointer: fine) and (any-hover: hover) {
   .social-link__icon:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+    -webkit-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
   }
 }
 /*---------- end footer ----------*/
@@ -583,7 +584,6 @@ body {
   .skills-wrap__text {
     padding-bottom: 40px;
   }
-
   /*---------- portfolio ----------*/
   .portfolio-tabs {
     flex-wrap: wrap;
@@ -593,10 +593,11 @@ body {
   }
 
   /*---------- price ----------*/
-  .price__item {
-    margin: 0 auto;
+  .price__item:last-of-type {
+    margin: 20px auto 0;
   }
 
+  /*---------- video ----------*/
   .video__player {
     min-width: 768px;
     height: auto;
@@ -604,16 +605,24 @@ body {
     padding-right: 0;
     margin: 0;
   }
-
-  /*---------- end footer ----------*/
-  /*---------- footer ----------*/
 }
 
+/*+++++++++++++++++++++++ screen 960 ++++++++++++++++++++++++++++*/
+@media (max-width: 960px) {
+  /*---------- price ----------*/
+  .price__item {
+    margin: 0 auto;
+  }
+  .price__item:not(:first-of-type) {
+    margin: 20px auto 0;
+  }
+}
 /*+++++++++++++++++++++++ screen 480 - 768 ++++++++++++++++++++++++++++*/
 @media (max-width: 768px) {
   $font-big-title: 32px;
   $font-title: 32px;
 
+  /*---------- geniral ----------*/
   .section__title {
     font-size: $font-title;
     line-height: 40px;
@@ -625,6 +634,7 @@ body {
     border-bottom: 2px solid $color-gold;
   }
 
+  /*---------- Header Hello ----------*/
   .hero,
   .header {
     background-size: auto 620px;
@@ -672,6 +682,7 @@ body {
     line-height: 24px;
   }
 
+  /*---------- skills ----------*/
   .skills-wrap {
     margin: 0 auto;
     padding-bottom: 3px;
@@ -697,11 +708,13 @@ body {
     padding-bottom: 76px;
   }
 
+  /*---------- portfolio ----------*/
   .portfolio-tabs {
     padding-top: 5px;
     padding-bottom: 10px;
   }
 
+  /*---------- video ----------*/
   .video__player {
     margin: 5px 15px 1px 57px;
     min-width: 810px;
@@ -716,6 +729,7 @@ body {
     height: 65px;
   }
 
+  /*---------- price ----------*/
   .price-wrap {
     padding-top: 4px;
   }
@@ -731,6 +745,7 @@ body {
     margin-bottom: 10px;
   }
 
+  /*---------- contacts ----------*/
   .contacts .container {
     margin-top: -70px;
     padding-bottom: 111px;
@@ -753,6 +768,7 @@ body {
     margin-right: auto;
   }
 
+  /*---------- footer ----------*/
   .footer__inner {
     flex-direction: column;
     padding: 20px 0;
@@ -857,10 +873,18 @@ body {
   #menu-toggle:checked ~ .menu-btn > span::before {
     top: 0;
     transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
   }
   #menu-toggle:checked ~ .menu-btn > span::after {
     top: 0;
     transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
   }
   #menu-toggle:checked ~ .menubox {
     visibility: visible;
@@ -870,16 +894,31 @@ body {
 }
 
 /*+++++++++++++++++++++++ screen 768 - 767 ++++++++++++++++++++++++++++*/
+/*---------- geniral ----------*/
 @media (max-width: 767px) {
   .video__player {
-    margin-top: 5px;
+    margin: 5px auto 0;
     min-width: 480px;
     height: auto;
   }
 }
 /*+++++++++++++++++++++++ screen 320 - 480 ++++++++++++++++++++++++++++*/
+/*---------- geniral ----------*/
+/*---------- skills ----------*/
+/*---------- portfolio ----------*/
+/*---------- price ----------*/
+/*---------- video ----------*/
+/*---------- contacts ----------*/
+/*---------- footer ----------*/
 @media (max-width: 480px) {
 }
 /*+++++++++++++++++++++++ screen 320 ++++++++++++++++++++++++++++*/
+/*---------- geniral ----------*/
+/*---------- skills ----------*/
+/*---------- portfolio ----------*/
+/*---------- price ----------*/
+/*---------- video ----------*/
+/*---------- contacts ----------*/
+/*---------- footer ----------*/
 @media (max-width: 320px) {
 }
