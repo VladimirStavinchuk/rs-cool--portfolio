@@ -858,9 +858,10 @@ body {
     padding-top: 4px;
   }
 
-  .price__item {
+  .price__item,
+.price__item:not(:first-of-type) {
     flex-basis: 418px;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
     padding: 41px 0;
     border: 2px solid #bdae82;
   }

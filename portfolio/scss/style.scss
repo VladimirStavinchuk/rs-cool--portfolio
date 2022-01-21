@@ -734,9 +734,15 @@ body {
     padding-top: 4px;
   }
 
-  .price__item {
+  // .price__item:not(:first-of-type) {
+  //   margin: 0 auto;
+  // }
+  .price__item,
+  .price__item:not(:first-of-type)
+  // .price__item:first-of-type
+  {
     flex-basis: 418px;
-    margin-bottom: 50px;
+    margin: 0 auto 50px;
     padding: 41px 0;
     border: 2px solid $color-gold;
   }
