@@ -527,17 +527,16 @@ body.lock {
   color: $color-dark;
 }
 
-.contacts-item_textarea {
-  // width: 450px;
+.contacts-item.contacts__item__textarea {
   height: 100px;
   resize: none;
   line-height: 40px;
 }
 
-.contacts-form__btn {
+.contacts-item__btn {
   margin-top: 10px;
-  margin-left: auto;
-  padding: 8px 16px;
+  text-align: center;
+  // padding: 8px 16px;
 }
 /*---------- end section contacts ----------*/
 
@@ -684,7 +683,6 @@ body.lock {
     background-position: -5px -30px;
     height: 590px;
     margin-top: -90px;
-    // margin-bottom: 100px;
   }
 
   .logo {
@@ -812,7 +810,10 @@ body.lock {
   }
 
   .contacts-item__btn {
-    text-align: center;
+    display: block;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /*---------- footer ----------*/
@@ -828,11 +829,9 @@ body.lock {
   .rsschool .link__footer {
     line-height: 24px;
   }
+
   .rsschool {
-    .rsschool {
-      margin-top: -5px;
-      padding-left: 0px;
-    }
+    margin-top: -5px;
     padding-left: 0px;
   }
 
@@ -841,13 +840,10 @@ body.lock {
   }
 
   /*---------- burger menu ----------*/
-  // todo Нужно зафиксить скрол сайта при открытом бургер меню
-  .nav__list {
-    display: none;
-  }
   .menu-burger {
     display: block;
   }
+
   .menu-btn {
     display: block;
     display: flex;
@@ -907,27 +903,35 @@ body.lock {
     -o-transform: rotate(90deg);
   }
 
-  .menu-body {
+  .nav__list {
     position: fixed;
-    overflow: auto;
-    //visibility: hidden;
+    // overflow: auto; // полоса прокрутки появляется
+    flex-direction: column;
     top: 0;
     right: -100%;
     width: 81%;
     height: 100%;
-    //margin: 0;
+    z-index: 10;
+    margin: 0;
     padding: 124px 22px 24px 13.3%;
     background-color: $color-dark;
-    transition: right 0.3 ease 0s;
-    -webkit-transition: right 0.3 ease 0s;
-    -moz-transition: right 0.3 ease 0s;
-    -ms-transition: right 0.3 ease 0s;
-    -o-transition: right 0.3 ease 0s;
+    transition: right 0.3s ease 0s;
+    -webkit-transition: right 0.3s ease 0s;
+    -moz-transition: right 0.3s ease 0s;
+    -ms-transition: right 0.3s ease 0s;
+    -o-transition: right 0.3s ease 0s;
   }
 
-  .menu-item {
+  .nav__list.active {
+    right: 0;
+  }
+
+  .nav__link,
+  .nav__item {
     display: block;
-    padding: 9px 24px 7px;
+    width: 100%;
+    // padding: 9px 24px 7px;
+    padding: 4px 13px 4px;
     color: $color-white;
     font-family: "Inter", sans-serif;
     font-size: $font-burger;
@@ -935,19 +939,12 @@ body.lock {
     line-height: 73px;
     transition-duration: 0.25s;
   }
-
-  // @media (any-pointer: fine) and (any-hover: hover) {
-  //   .menu-item:hover {
-  //     background-color: transparent;
-  //   }
-  // }
-
   /*---------- end burger menu ----------*/
 }
 
-/*+++++++++++++++++++++++ screen 768 - 767 ++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++ screen 768 - 766 ++++++++++++++++++++++++++++*/
 /*---------- geniral ----------*/
-@media (max-width: 767px) {
+@media (max-width: 766px) {
   .video__player {
     margin: 5px auto 0;
     min-width: 480px;
@@ -1120,22 +1117,22 @@ body.lock {
     height: 23px;
   }
 
-  .menubox {
-    right: -100%;
-    width: 460px;
+  .nav__list {
+    width: 100%;
     padding: 70px 22px 24px 30px;
   }
 
-  .menu-item {
-    padding: 9px 24px 7px;
-    font-size: $font-burger;
-    line-height: 60px;
-    transition-duration: 0.25s;
-  }
+  // .menu-item,
+  // .nav__link {
+  //   padding: 9px 24px 7px;
+  //   font-size: $font-burger;
+  //   line-height: 60px;
+  //   transition-duration: 0.25s;
+  // }
 
-  #menu-toggle:checked ~ .menu-btn > span,
-  #menu-toggle:checked ~ .menu-btn > span::before,
-  #menu-toggle:checked ~ .menu-btn > span::after {
+  .menu-btn > span,
+  .menu-btn > span::before,
+  .menu-btn > span::after {
     width: 100%;
   }
 }
@@ -1145,7 +1142,6 @@ body.lock {
 @media (max-width: 450px) {
   $font-price-title: 24px;
   $font-price-value: 18px;
-  // $font-item-text: 20px;
 
   /*---------- Header Hello ----------*/
   .hero,
