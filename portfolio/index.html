@@ -26,20 +26,18 @@
       <a class="link" href="#"><img class="logo" src="./assets/img/icon/logo.svg" alt="logo"></a>
       <nav class="header-nav">
 
-        <div class="burger-menu">
-          <input id="menu-toggle" type="checkbox" />
-          <label class="menu-btn" for="menu-toggle">
-            <span></span>
-          </label>
-
-          <ul class="menubox">
+        <div class="menu-btn">
+          <span></span>
+        </div>
+        <nav class="menu__body">
+          <ul class="menu-list">
             <li class="nav__item"><a href="#id-skills" class="menu-item">Skills</a></li>
             <li class="nav__item"><a href="#id-portfolio" class="menu-item">Portfolio</a></li>
             <li class="nav__item"><a href="#id-video" class="menu-item">Video</a></li>
             <li class="nav__item"><a href="#id-price" class="menu-item">Price</a></li>
             <li class="nav__item"><a href="#id-contacts" class="menu-item">Contacts</a></li>
           </ul>
-        </div>
+        </nav>
 
         <ul class="nav__list">
           <li class="nav__item"><a href="#id-skills" class="link nav__link">Skills</a></li>
@@ -48,12 +46,12 @@
           <li class="nav__item"><a href="#id-price" class="link nav__link">Price</a></li>
           <li class="nav__item"><a href="#id-contacts" class="link nav__link">Contacts</a></li>
         </ul>
-
+        <!-- 
         <ul class="language__list">
           <li class="language__item"><a href="#" class="link language__link active">en</a></li>
           <li class="language__item">/</li>
           <li class="language__item"><a href="#" class="link language__link">ru</a></li>
-        </ul>
+        </ul> -->
       </nav>
     </div>
   </header>
@@ -180,16 +178,16 @@
     <section class="section contacts" id="id-contacts">
       <div class="container">
         <div class="contacts-wraper">
-          <h2 class="contacts__title">Contact me</h2>
-          <form>
-            <ul class="contacts-inner">
-              <li><input class="contacts-item" type="email" id="email" placeholder="E-mail"></li>
-              <li><input class="contacts-item" type="tel" id="phone" placeholder="Phone"></li>
-              <li><textarea class="contacts-item form__item_textarea" name="form__item_textarea" id="contacts-textarea"
-                  cols="30" rows="10" placeholder="Message"></textarea></li>
-              <li class="contacts-item__btn"><button class="btn contacts-form__btn">Send message</button></li>
-            </ul>
-          </form>
+          <div class="contacts-inner">
+            <h2 class="contacts__title">Contact me</h2>
+            <form class="form contacts-form" action="#">
+              <input class="contacts-item" type="email" placeholder="E-mail">
+              <input class="contacts-item" type="tel" placeholder="Phone">
+              <textarea class="contacts-item form__item_textarea" name="form__item_textarea" id="contacts-textarea"
+                cols="30" rows="10" placeholder="Message"></textarea>
+              <button class="btn contacts-form__btn">Send message</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

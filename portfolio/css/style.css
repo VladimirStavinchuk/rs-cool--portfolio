@@ -161,6 +161,10 @@ body {
   background-color: #000000;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -264,7 +268,8 @@ body {
 
 /*---------- end general properties ----------*/
 /*---------- header ----------*/
-.burger-menu {
+.menu-burger,
+.menu-btn {
   display: none;
 }
 
@@ -598,7 +603,7 @@ body {
     border-color: #bdae82;
   }
 }
-.form__item::-moz-placeholder {
+.contacts-item::-moz-placeholder {
   color: #bdae82;
   font-size: 20px;
   transition: 0.3s;
@@ -607,7 +612,7 @@ body {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
-.form__item:-ms-input-placeholder {
+.contacts-item:-ms-input-placeholder {
   color: #bdae82;
   font-size: 20px;
   transition: 0.3s;
@@ -616,7 +621,7 @@ body {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
-.form__item::placeholder {
+.contacts-item::placeholder {
   color: #bdae82;
   font-size: 20px;
   transition: 0.3s;
@@ -626,22 +631,22 @@ body {
   -o-transition: 0.3s;
 }
 
-.form__item:focus::-moz-placeholder {
+.contacts-item:focus::-moz-placeholder {
   font-size: 18px;
   color: #000000;
 }
 
-.form__item:focus:-ms-input-placeholder {
+.contacts-item:focus:-ms-input-placeholder {
   font-size: 18px;
   color: #000000;
 }
 
-.form__item:focus::placeholder {
+.contacts-item:focus::placeholder {
   font-size: 18px;
   color: #000000;
 }
 
-.form__item_textarea {
+.contacts-item_textarea {
   height: 100px;
   resize: none;
   line-height: 40px;
@@ -946,11 +951,12 @@ body {
     display: none;
   }
 
-  .burger-menu {
+  .menu-burger {
     display: block;
   }
 
   .menu-btn {
+    display: block;
     display: flex;
     align-items: center;
     position: fixed;
@@ -983,18 +989,49 @@ body {
     top: 13px;
   }
 
-  .menubox {
-    display: block;
+  .menu-btn.active > span {
+    width: 110%;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+  }
+
+  .menu-btn.active > span::before {
+    width: 110%;
+    top: 0;
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+  }
+
+  .menu-btn.active > span::after {
+    width: 110%;
+    top: 0;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+  }
+
+  .menu-body {
     position: fixed;
-    visibility: hidden;
+    overflow: auto;
     top: 0;
     right: -100%;
     width: 81%;
     height: 100%;
-    margin: 0;
     padding: 124px 22px 24px 13.3%;
     background-color: #000000;
-    transition-duration: 0.25s;
+    transition: right 0.3 ease 0s;
+    -webkit-transition: right 0.3 ease 0s;
+    -moz-transition: right 0.3 ease 0s;
+    -ms-transition: right 0.3 ease 0s;
+    -o-transition: right 0.3 ease 0s;
   }
 
   .menu-item {
@@ -1009,54 +1046,6 @@ body {
   }
 
   /*---------- end burger menu ----------*/
-}
-@media (max-width: 768px) and (any-pointer: fine) and (any-hover: hover) {
-  .menu-item:hover {
-    background-color: transparent;
-  }
-}
-@media (max-width: 768px) {
-  #menu-toggle {
-    opacity: 0;
-  }
-}
-@media (max-width: 768px) {
-  #menu-toggle:checked ~ .menu-btn > span {
-    width: 110%;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-  }
-}
-@media (max-width: 768px) {
-  #menu-toggle:checked ~ .menu-btn > span::before {
-    width: 110%;
-    top: 0;
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -ms-transform: rotate(0);
-    -o-transform: rotate(0);
-  }
-}
-@media (max-width: 768px) {
-  #menu-toggle:checked ~ .menu-btn > span::after {
-    width: 110%;
-    top: 0;
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-  }
-}
-@media (max-width: 768px) {
-  #menu-toggle:checked ~ .menubox {
-    visibility: visible;
-    right: 0;
-  }
 }
 /*+++++++++++++++++++++++ screen 768 - 767 ++++++++++++++++++++++++++++*/
 /*---------- geniral ----------*/

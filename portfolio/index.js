@@ -1,3 +1,17 @@
+function burgerMenu (selector) {
+  const menuBtn = document.querySelector ('.menu-btn');
+  if (menuBtn) {
+    const menuBody = document.querySelector ('.menu__body');
+    menuBtn.addEventListener ('click', function (e) {
+      document.body.classList.toggle ('lock');
+      menuBtn.classList.toggle ('active');
+      menuBody.classList.toggle ('active');
+    });
+  }
+}
+
+burgerMenu ('.burger-menu');
+
 console.log (`
 portfolio#1 - Фиксированная вёрстка \n
 https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part1.md \n
