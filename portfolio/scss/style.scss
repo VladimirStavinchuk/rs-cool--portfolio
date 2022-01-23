@@ -456,12 +456,10 @@ body {
 }
 
 .contacts-wraper {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.contacts-inner {
-  flex: 0 0 450px;
+  max-width: 450px;
+  min-width: 300px;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .contacts__title {
@@ -473,16 +471,21 @@ body {
   color: $color-gold;
 }
 
-.contacts-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form__item {
+.contacts-item {
   display: block;
+  width: 100%;
+  max-width: 450px;
+  // max-width: 100%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // align-items: flex-end;
+  // flex: 0 1 250px;
+  // max-width: 450px;
+  // flex: 1 1 250px;1
+  // min-width: 250px;
   padding: 0 12px;
   height: 50px;
+  margin-bottom: 20px;
   font-family: "Inter", sans-serif;
   font-size: $font-text;
   font-weight: 400;
@@ -496,6 +499,7 @@ body {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
+
 @media (any-pointer: fine) and (any-hover: hover) {
   .form__item:hover {
     border: 3px solid $color-white;
@@ -527,7 +531,7 @@ body {
 }
 
 .form__item_textarea {
-  width: 450px;
+  // width: 450px;
   height: 100px;
   resize: none;
   line-height: 40px;
@@ -535,7 +539,8 @@ body {
 
 .contacts-form__btn {
   margin-top: 10px;
-  line-height: 40px;
+  margin-left: auto;
+  padding: 8px 16px;
 }
 /*---------- end section contacts ----------*/
 
@@ -790,6 +795,7 @@ body {
   }
 
   /*---------- contacts ----------*/
+
   .contacts .container {
     margin-top: -70px;
     padding-bottom: 111px;
@@ -797,19 +803,19 @@ body {
     background-size: auto 600px;
   }
 
-  .contacts-inner {
-    margin: 0 auto;
-    text-align: center;
+  .contacts-wraper {
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .contacts__title {
+    text-align: center;
     font-size: $font-title;
     line-height: 64px;
   }
 
-  .contacts-form__btn {
-    margin-left: auto;
-    margin-right: auto;
+  .contacts-item__btn {
+    text-align: center;
   }
 
   /*---------- footer ----------*/
@@ -1029,20 +1035,6 @@ body {
     padding: 30px 10px;
     background: rgba(0, 0, 0, 0.4);
   }
-
-  // .contacts-inner {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   align-items: center;
-  // }
-
-  // .contacts-form,
-  // .form__item {
-  //   flex: 1 0 100px;
-  //   max-width: 100%;
-  //   padding-left: 20px;
-  //   padding-right: 5px;
-  // }
 }
 /*+++++++++++++++++++++++ screen 320 - 480 ++++++++++++++++++++++++++++*/
 @media (max-width: 480px) {
@@ -1156,6 +1148,7 @@ body {
 }
 
 /*+++++++++++++++++++++++ screen 450 ++++++++++++++++++++++++++++*/
+//todo переделать бургер меню и контакты
 @media (max-width: 450px) {
   $font-price-title: 24px;
   $font-price-value: 18px;
@@ -1203,71 +1196,6 @@ body {
 
   .btn__price {
     margin-top: 40px;
-  }
-
-  /*---------- section contacts ----------*/
-  .contacts-wraper {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .contacts-inner {
-    flex: 0 0 450px;
-  }
-
-  // .contacts__title {
-  //   margin-bottom: 40px;
-  //   font-family: "Merriweather", serif;
-  //   font-size: $font-title;
-  //   font-weight: 700;
-  //   line-height: 80px;
-  //   color: $color-gold;
-  // }
-
-  .contacts-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .form__item {
-    display: block;
-    padding: 0 12px;
-    height: 50px;
-    font-family: "Inter", sans-serif;
-    font-size: $font-text;
-    font-weight: 400;
-    line-height: 40px;
-    color: $color-white;
-    border: 2px solid $color-gold;
-    background-color: transparent;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
-  }
-
-  .form__item::placeholder {
-    color: #bdae82;
-    font-size: $font-text;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
-  }
-
-  .form__item:focus::placeholder {
-    font-size: $font-item-text;
-    color: $color-dark;
-  }
-
-  .form__item_textarea {
-    max-width: 450px;
-    height: 100px;
-    resize: none;
-    line-height: 40px;
   }
 }
 /*+++++++++++++++++++++++ screen 320 ++++++++++++++++++++++++++++*/

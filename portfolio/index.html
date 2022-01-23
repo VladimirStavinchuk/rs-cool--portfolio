@@ -180,16 +180,16 @@
     <section class="section contacts" id="id-contacts">
       <div class="container">
         <div class="contacts-wraper">
-          <div class="contacts-inner">
-            <h2 class="contacts__title">Contact me</h2>
-            <form class="form contacts-form" action="#">
-              <input class="form__item" type="email" placeholder="E-mail">
-              <input class="form__item" type="tel" placeholder="Phone">
-              <textarea class="form__item form__item_textarea" name="form__item_textarea" id="contacts-textarea"
-                cols="30" rows="10" placeholder="Message"></textarea>
-              <button class="btn contacts-form__btn">Send message</button>
-            </form>
-          </div>
+          <h2 class="contacts__title">Contact me</h2>
+          <form>
+            <ul class="contacts-inner">
+              <li><input class="contacts-item" type="email" id="email" placeholder="E-mail"></li>
+              <li><input class="contacts-item" type="tel" id="phone" placeholder="Phone"></li>
+              <li><textarea class="contacts-item form__item_textarea" name="form__item_textarea" id="contacts-textarea"
+                  cols="30" rows="10" placeholder="Message"></textarea></li>
+              <li class="contacts-item__btn"><button class="btn contacts-form__btn">Send message</button></li>
+            </ul>
+          </form>
         </div>
       </div>
     </section>
