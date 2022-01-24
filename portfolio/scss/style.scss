@@ -950,13 +950,35 @@ body.lock {
     min-width: 480px;
     height: auto;
   }
+
+  /*---------- geniral ----------*/
+  .section__title {
+    font-size: $font-title;
+    line-height: 40px;
+    margin-bottom: 65px;
+  }
 }
 
 /*+++++++++++++++++++++++ screen 640 ++++++++++++++++++++++++++++*/
 @media (max-width: 640px) {
   /*---------- geniral ----------*/
   $font-big-title: 28px;
+  $font-title: 32px;
   $font-text: 18px;
+
+  .section__title {
+    font-size: $font-title;
+  }
+
+  .section__title::after {
+    margin-right: 20%;
+    margin-left: 15px;
+  }
+
+  .section__title::before {
+    margin-right: 15px;
+    margin-left: 20%;
+  }
 
   .section:not(:last-of-type) {
     margin-bottom: 60px;
@@ -1183,6 +1205,18 @@ body.lock {
 /*+++++++++++++++++++++++ screen 320 ++++++++++++++++++++++++++++*/
 @media (max-width: 320px) {
   /*---------- geniral ----------*/
+  .section__title::after {
+    visibility: hidden;
+    // margin-right: 20%;
+    // margin-left: 15px;
+  }
+
+  .section__title::before {
+    visibility: hidden;
+    // margin-right: 15px;
+    // margin-left: 20%;
+  }
+
   /*---------- Header Hello ----------*/
   .hero,
   .header {
