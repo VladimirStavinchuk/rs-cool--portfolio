@@ -950,13 +950,35 @@ body.lock {
     min-width: 480px;
     height: auto;
   }
+
+  /*---------- geniral ----------*/
+  .section__title {
+    font-size: $font-title;
+    line-height: 40px;
+    margin-bottom: 65px;
+  }
 }
 
 /*+++++++++++++++++++++++ screen 640 ++++++++++++++++++++++++++++*/
 @media (max-width: 640px) {
   /*---------- geniral ----------*/
   $font-big-title: 28px;
+  $font-title: 32px;
   $font-text: 18px;
+
+  .section__title {
+    font-size: $font-title;
+  }
+
+  .section__title::after {
+    margin-right: 20%;
+    margin-left: 15px;
+  }
+
+  .section__title::before {
+    margin-right: 15px;
+    margin-left: 20%;
+  }
 
   .section:not(:last-of-type) {
     margin-bottom: 60px;
@@ -1122,14 +1144,6 @@ body.lock {
     padding: 70px 22px 24px 30px;
   }
 
-  // .menu-item,
-  // .nav__link {
-  //   padding: 9px 24px 7px;
-  //   font-size: $font-burger;
-  //   line-height: 60px;
-  //   transition-duration: 0.25s;
-  // }
-
   .menu-btn > span,
   .menu-btn > span::before,
   .menu-btn > span::after {
@@ -1161,7 +1175,8 @@ body.lock {
     line-height: 45px;
   }
 
-  .price__item {
+  .price__item,
+  .price__item:not(:first-of-type) {
     flex: 0 1 350px;
     padding: 35px 0;
   }
@@ -1190,6 +1205,18 @@ body.lock {
 /*+++++++++++++++++++++++ screen 320 ++++++++++++++++++++++++++++*/
 @media (max-width: 320px) {
   /*---------- geniral ----------*/
+  .section__title::after {
+    visibility: hidden;
+    // margin-right: 20%;
+    // margin-left: 15px;
+  }
+
+  .section__title::before {
+    visibility: hidden;
+    // margin-right: 15px;
+    // margin-left: 20%;
+  }
+
   /*---------- Header Hello ----------*/
   .hero,
   .header {
@@ -1198,9 +1225,10 @@ body.lock {
 
   .hero {
     background-position: -10px -30px;
-    height: 430px;
+    height: 375px;
     margin-top: -90px;
-    margin-bottom: 150px;
+    margin-bottom: 0px;
+    // margin-bottom: 150px;
     // padding-top: 100px;
   }
 

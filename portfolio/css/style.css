@@ -1058,10 +1058,31 @@ body.lock {
     min-width: 480px;
     height: auto;
   }
+
+  /*---------- geniral ----------*/
+  .section__title {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 65px;
+  }
 }
 /*+++++++++++++++++++++++ screen 640 ++++++++++++++++++++++++++++*/
 @media (max-width: 640px) {
   /*---------- geniral ----------*/
+  .section__title {
+    font-size: 32px;
+  }
+
+  .section__title::after {
+    margin-right: 20%;
+    margin-left: 15px;
+  }
+
+  .section__title::before {
+    margin-right: 15px;
+    margin-left: 20%;
+  }
+
   .section:not(:last-of-type) {
     margin-bottom: 60px;
   }
@@ -1249,7 +1270,8 @@ body.lock {
     line-height: 45px;
   }
 
-  .price__item {
+  .price__item,
+.price__item:not(:first-of-type) {
     flex: 0 1 350px;
     padding: 35px 0;
   }
@@ -1278,6 +1300,14 @@ body.lock {
 /*+++++++++++++++++++++++ screen 320 ++++++++++++++++++++++++++++*/
 @media (max-width: 320px) {
   /*---------- geniral ----------*/
+  .section__title::after {
+    visibility: hidden;
+  }
+
+  .section__title::before {
+    visibility: hidden;
+  }
+
   /*---------- Header Hello ----------*/
   .hero,
 .header {
@@ -1286,9 +1316,9 @@ body.lock {
 
   .hero {
     background-position: -10px -30px;
-    height: 430px;
+    height: 375px;
     margin-top: -90px;
-    margin-bottom: 150px;
+    margin-bottom: 0px;
   }
 
   /*---------- skills ----------*/
