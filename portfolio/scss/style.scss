@@ -960,8 +960,8 @@ body.lock {
   }
 }
 
-/*+++++++++++++++++++++++ screen 640 ++++++++++++++++++++++++++++*/
-@media (max-width: 640px) {
+/*+++++++++++++++++++++++ screen 620 ++++++++++++++++++++++++++++*/
+@media (max-width: 620px) {
   /*---------- geniral ----------*/
   $font-big-title: 28px;
   $font-title: 32px;
@@ -1004,7 +1004,6 @@ body.lock {
     height: 40px;
   }
 
-  .nav__list,
   .language__list {
     margin-top: 15px;
   }
@@ -1096,7 +1095,6 @@ body.lock {
     height: 30px;
   }
 
-  .nav__list,
   .language__list {
     margin-top: 5px;
     font-size: $font-text;

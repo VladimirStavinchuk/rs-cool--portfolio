@@ -1066,8 +1066,8 @@ body.lock {
     margin-bottom: 65px;
   }
 }
-/*+++++++++++++++++++++++ screen 640 ++++++++++++++++++++++++++++*/
-@media (max-width: 640px) {
+/*+++++++++++++++++++++++ screen 620 ++++++++++++++++++++++++++++*/
+@media (max-width: 620px) {
   /*---------- geniral ----------*/
   .section__title {
     font-size: 32px;
@@ -1106,8 +1106,7 @@ body.lock {
     height: 40px;
   }
 
-  .nav__list,
-.language__list {
+  .language__list {
     margin-top: 15px;
   }
 
@@ -1195,8 +1194,7 @@ body.lock {
     height: 30px;
   }
 
-  .nav__list,
-.language__list {
+  .language__list {
     margin-top: 5px;
     font-size: 16px;
   }
