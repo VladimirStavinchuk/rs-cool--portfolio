@@ -1,4 +1,6 @@
 // todo Самостоятельно напишите функцию preloadImages() для кеширования изображений из всех папок с временами года. https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part3-hints.md
+import i18Obj from './translate.js';
+console.log (i18Obj.ru);
 
 const changeClassActive = function (className) {
   className.classList.toggle ('active');
@@ -9,7 +11,7 @@ const deleteClassActive = function (className) {
 };
 
 // Burger menu
-function BurgerMenu () {
+function burgerMenu () {
   const burgerItem = document.querySelector ('.menu-btn');
   const menuBurger = document.querySelector ('.nav__list');
 
@@ -28,12 +30,11 @@ function BurgerMenu () {
   });
 }
 
-function PortfolioSeason () {
+// Portfolio Season
+function portfolioSeason () {
   const portfolioTabs = document.querySelector ('.portfolio-tabs');
   const portfolioBtns = document.querySelectorAll ('.portfolio-tabs__btn');
   const portfolioImages = document.querySelectorAll ('.portfolio-img');
-  // console.log (portfolioBtn);
-  // console.log (portfolioImage);
 
   portfolioTabs.addEventListener ('click', function (event) {
     if (event.target.classList.contains ('portfolio-tabs__btn')) {
@@ -51,5 +52,19 @@ function PortfolioSeason () {
   });
 }
 
-BurgerMenu ();
-PortfolioSeason ();
+// Switch language
+function switchLanguage () {
+  const languageList = document.querySelector ('.language__list');
+  const languageLink = document.querySelectorAll ('.language__link');
+
+  languageList.addEventListener ('click', function (event) {
+    if (event.target.classList.contains ('language__link')) {
+      changeClassActive (languageLink[0]);
+      changeClassActive (languageLink[1]);
+    }
+  });
+}
+
+burgerMenu ();
+portfolioSeason ();
+switchLanguage ();
