@@ -1,5 +1,12 @@
 // todo Самостоятельно напишите функцию preloadImages() для кеширования изображений из всех папок с временами года. https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part3-hints.md
 import i18Obj from './translate.js';
+const arrLightTheme = [
+  'body',
+  'section__title_skills',
+  'skills-wrap__img',
+  'skills-wrap__title',
+  'skills-wrap__text',
+];
 
 const changeClassActive = function (className) {
   className.classList.toggle ('active');
@@ -10,7 +17,7 @@ const deleteClassActive = function (className) {
 };
 
 // Burger menu
-function burgerMenu () {
+function getBurgerMenu () {
   const burgerItem = document.querySelector ('.menu-btn');
   const menuBurger = document.querySelector ('.nav__list');
 
@@ -42,7 +49,9 @@ function getPortfolioSeason () {
       portfolioBtns.forEach (element => {
         deleteClassActive (element);
       });
+
       changeClassActive (event.target);
+
       portfolioImages.forEach (
         (img, index) =>
           (img.src = `./assets/img/${sesonActiv}/${index + 1}.jpg`)
@@ -53,7 +62,8 @@ function getPortfolioSeason () {
 
 // getTranslate
 // todo далее можно сделать две проверки:
-// На соответствие ключей в объекте i18Obj с data-атрибутами из коллекции
+// ? На соответствие ключей в объекте i18Obj с data-атрибутами из коллекции
+
 function getTranslate () {
   const languageList = document.querySelector ('.language__list');
   const languageLink = document.querySelectorAll ('.language__link');
@@ -68,7 +78,7 @@ function getTranslate () {
       if (event.target.innerHTML === language) {
       } else {
         changeClassActive (languageLink[1]);
-        changeClassActive (languageLink[0]);
+        icon - theme (languageLink[0]);
         language === 'en' ? (language = 'ru') : (language = 'en');
       }
 
@@ -86,6 +96,20 @@ function getTranslate () {
   });
 }
 
-burgerMenu ();
+function getTheme () {
+  const iconTheme = document.querySelector ('.icon-theme');
+
+  iconTheme.addEventListener ('click', function (theme) {
+    // console.log (iconTheme);
+    iconTheme.classList.toggle ('light-theme');
+    // console.log (iconTheme.src);
+    iconTheme.classList.contains ('light-theme')
+      ? (iconTheme.src = './assets/img/icon/night_icon.svg')
+      : (iconTheme.src = './assets/img/icon/day_icon.svg');
+  });
+}
+
+getTheme ();
+getBurgerMenu ();
 getPortfolioSeason ();
 getTranslate ();

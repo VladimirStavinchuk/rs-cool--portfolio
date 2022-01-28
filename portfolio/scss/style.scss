@@ -35,22 +35,6 @@
 @import "normalize.scss";
 @import "variables.scss";
 
-/*---------- visually-hidden ----------*/
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-/*---------- end visually-hidden ----------*/
-
 /*---------- general properties ----------*/
 
 html {
@@ -63,7 +47,7 @@ html {
   }
 }
 
-body {
+.body {
   font-family: "Inter", sans-serif;
   font-size: $font-text;
   font-style: normal;
@@ -73,8 +57,12 @@ body {
   background-color: $color-dark;
 }
 
-body.open {
+.body.open {
   overflow: hidden;
+}
+
+.body.lite-theme {
+  background-color: $color-white;
 }
 
 .container {
@@ -206,12 +194,40 @@ body.open {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
+
+.icon-theme {
+  margin-top: 20px;
+  margin-right: 21px;
+  margin-left: 30px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  color: $color-white;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
 @media (any-pointer: fine) and (any-hover: hover) {
   .logo:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
   }
 }
+
 .logo:active {
+  filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  -webkit-filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+@media (any-pointer: fine) and (any-hover: hover) {
+  .icon-theme:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
+}
+
+.icon-theme:active {
   filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
   -webkit-filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
