@@ -646,7 +646,7 @@ body.open {
   color: #000000;
 }
 
-.contacts-item.contacts__item__textarea {
+.contacts-item .contacts-item__textarea {
   height: 100px;
   resize: none;
   line-height: 40px;

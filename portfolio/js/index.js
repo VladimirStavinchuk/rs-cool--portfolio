@@ -1,6 +1,5 @@
 // todo Самостоятельно напишите функцию preloadImages() для кеширования изображений из всех папок с временами года. https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part3-hints.md
 import i18Obj from './translate.js';
-console.log (i18Obj.ru);
 
 const changeClassActive = function (className) {
   className.classList.toggle ('active');
@@ -31,7 +30,7 @@ function burgerMenu () {
 }
 
 // Portfolio Season
-function portfolioSeason () {
+function getPortfolioSeason () {
   const portfolioTabs = document.querySelector ('.portfolio-tabs');
   const portfolioBtns = document.querySelectorAll ('.portfolio-tabs__btn');
   const portfolioImages = document.querySelectorAll ('.portfolio-img');
@@ -52,19 +51,41 @@ function portfolioSeason () {
   });
 }
 
-// Switch language
-function switchLanguage () {
+// getTranslate
+// todo далее можно сделать две проверки:
+// На соответствие ключей в объекте i18Obj с data-атрибутами из коллекции
+function getTranslate () {
   const languageList = document.querySelector ('.language__list');
   const languageLink = document.querySelectorAll ('.language__link');
+  const bodyLanguag = document.querySelectorAll ('[data-i18]');
+  let language = '';
+  languageLink[0].classList.contains ('active')
+    ? (language = 'en')
+    : (language = 'ru');
 
   languageList.addEventListener ('click', function (event) {
     if (event.target.classList.contains ('language__link')) {
-      changeClassActive (languageLink[0]);
-      changeClassActive (languageLink[1]);
+      if (event.target.innerHTML === language) {
+      } else {
+        changeClassActive (languageLink[1]);
+        changeClassActive (languageLink[0]);
+        language === 'en' ? (language = 'ru') : (language = 'en');
+      }
+
+      bodyLanguag.forEach (element => {
+        if (i18Obj[language][element.dataset.i18]) {
+          if (element.placeholder) {
+            element.placeholder = i18Obj[language][element.dataset.i18];
+            element.textContent = '';
+          } else {
+            element.textContent = i18Obj[language][element.dataset.i18];
+          }
+        }
+      });
     }
   });
 }
 
 burgerMenu ();
-portfolioSeason ();
-switchLanguage ();
+getPortfolioSeason ();
+getTranslate ();
