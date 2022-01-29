@@ -99,35 +99,53 @@ function getTranslate () {
   });
 }
 
-function getTheme () {
+function listеnTheme () {
   const iconTheme = document.querySelector ('.icon-theme');
-  let lightTheme;
-
-  // function changeTheme (newTheme) {
-  //   // arrChangeTheme
-  //   arrChangeTheme.forEach (elemeArrChangeTheme => {
-  //     const changeTags = document.querySelectorAll ([elemeArrChangeTheme]);
-
-  //     changeTags.forEach (element => {
-  //       element.classList.toggle ('light-theme');
-  //     });
-  //   });
-  // }
-
-  iconTheme.addEventListener ('click', function (theme) {
+  iconTheme.addEventListener ('click', () => {
     iconTheme.classList.toggle ('light-theme');
     document.querySelector ('.body').classList.toggle ('light-theme');
-    if (iconTheme.classList.contains ('light-theme')) {
-      iconTheme.src = './assets/img/icon/night_icon.svg';
-      lightTheme = true;
-    } else {
-      iconTheme.src = './assets/img/icon/day_icon.svg';
-      lightTheme = false;
-    }
+    setTheme ();
   });
 }
 
-getTheme ();
+function setTheme (newTheme) {
+  console.log (newTheme, typeof newTheme);
+  const iconTheme = document.querySelector ('.icon-theme');
+
+  if (iconTheme.classList.contains ('light-theme') || newTheme === true) {
+    iconTheme.src = './assets/img/icon/day_icon.svg';
+    iconTheme.classList.add ('light-theme');
+    document.querySelector ('.body').classList.add ('light-theme');
+    setLocalStorage (false);
+  } else {
+    iconTheme.src = './assets/img/icon/night_icon.svg';
+    setLocalStorage (true);
+  }
+
+  // if (iconTheme.classList.contains ('light-theme') || newTheme === true) {
+  //   iconTheme.src = './assets/img/icon/night_icon.svg';
+  //   iconTheme.classList.add ('light-theme');
+  //   setLocalStorage (false);
+  // } else {
+  //   iconTheme.src = './assets/img/icon/day_icon.svg';
+  //   setLocalStorage (true);
+  // }
+}
+
+listеnTheme ();
+
+function setLocalStorage (lightTheme) {
+  localStorage.setItem ('theme', lightTheme);
+}
+
+function getLocalStorage () {
+  if (localStorage.getItem ('theme')) {
+    const lightThemeSaves = Boolean (localStorage.getItem ('theme'));
+    setTheme (lightThemeSaves);
+  }
+}
+window.addEventListener ('load', getLocalStorage);
+
 getBurgerMenu ();
 getPortfolioSeason ();
 getTranslate ();
