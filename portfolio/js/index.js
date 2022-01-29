@@ -81,7 +81,7 @@ function getTranslate () {
       if (event.target.innerHTML === language) {
       } else {
         changeClassActive (languageLink[1]);
-        icon - theme (languageLink[0]);
+        changeClassActive (languageLink[0]);
         language === 'en' ? (language = 'ru') : (language = 'en');
       }
 
@@ -124,8 +124,6 @@ function getTheme () {
       iconTheme.src = './assets/img/icon/day_icon.svg';
       lightTheme = false;
     }
-
-    // changeTheme (lightTheme);
   });
 }
 
