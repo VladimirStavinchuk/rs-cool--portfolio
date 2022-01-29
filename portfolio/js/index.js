@@ -1,11 +1,11 @@
 // todo Самостоятельно напишите функцию preloadImages() для кеширования изображений из всех папок с временами года. https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part3-hints.md
 import i18Obj from './translate.js';
-const arrLightTheme = [
-  'body',
-  'section__title_skills',
-  'skills-wrap__img',
-  'skills-wrap__title',
-  'skills-wrap__text',
+const arrChangeTheme = [
+  '.body',
+  '.section__title_skills',
+  '.skills-wrap__img',
+  '.skills-wrap__title',
+  '.skills-wrap__text',
 ];
 
 const changeClassActive = function (className) {
@@ -98,14 +98,32 @@ function getTranslate () {
 
 function getTheme () {
   const iconTheme = document.querySelector ('.icon-theme');
+  let lightTheme;
+
+  function changeTheme (newTheme) {
+    // arrChangeTheme
+    arrChangeTheme.forEach (elemeArrChangeTheme => {
+      const changeTags = document.querySelectorAll ([elemeArrChangeTheme]);
+
+      changeTags.forEach (element => {
+        element.classList.toggle ('light-theme');
+        console.log (element.classList);
+      });
+    });
+  }
 
   iconTheme.addEventListener ('click', function (theme) {
-    // console.log (iconTheme);
     iconTheme.classList.toggle ('light-theme');
-    // console.log (iconTheme.src);
-    iconTheme.classList.contains ('light-theme')
-      ? (iconTheme.src = './assets/img/icon/night_icon.svg')
-      : (iconTheme.src = './assets/img/icon/day_icon.svg');
+
+    if (iconTheme.classList.contains ('light-theme')) {
+      iconTheme.src = './assets/img/icon/night_icon.svg';
+      lightTheme = true;
+    } else {
+      iconTheme.src = './assets/img/icon/day_icon.svg';
+      lightTheme = false;
+    }
+
+    changeTheme (lightTheme);
   });
 }
 

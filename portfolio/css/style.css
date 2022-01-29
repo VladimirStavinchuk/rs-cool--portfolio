@@ -149,8 +149,16 @@ html {
   overflow: hidden;
 }
 
-.body.lite-theme {
+.body.light-theme {
   background-color: #ffffff;
+}
+
+.body .lite-theme {
+  background-color: #ffffff;
+}
+
+.section__title.light-theme {
+  color: red;
 }
 
 .container {
