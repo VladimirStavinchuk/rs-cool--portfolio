@@ -57,16 +57,9 @@ html {
   overflow: hidden;
 }
 
-.body.light-theme {
+.menu-burger,
+.body.lite-theme {
   background-color: $color-white;
-}
-
-.body .lite-theme {
-  background-color: $color-white;
-}
-
-.section__title.light-theme {
-  color: red;
 }
 
 .container {
@@ -130,7 +123,7 @@ html {
   -o-transition: 0.3s;
 }
 @media (any-pointer: fine) and (any-hover: hover) {
-  .btn:hover {
+  .btn:hover:not(.active) {
     color: $color-white;
     opacity: 0.8;
   }
@@ -172,6 +165,51 @@ html {
   color: transparent;
 }
 /*---------- end general properties ----------*/
+
+/*---------- light-theme ----------*/
+.body.light-theme {
+  background-color: $color-white;
+}
+
+.body.light-theme .footer__inner {
+  background-color: $color-dark;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.body.light-theme .portfolio-tabs__btn,
+.body.light-theme .section__title,
+.body.light-theme .skills-wrap__title,
+.body.light-theme .skills-wrap__text,
+.body.light-theme .price__title,
+.body.light-theme .price__item-description {
+  color: $color-dark;
+}
+
+.body.light-theme .portfolio-tabs__btn.active {
+  color: $color-white;
+}
+
+@media (any-pointer: fine) and (any-hover: hover) {
+  .body.light-theme .portfolio-tabs__btn:hover:not(.active) {
+    border: 2px dashed;
+    color: $color-gold;
+  }
+}
+
+.body.light-theme .portfolio-tabs__btn.active {
+  color: $color-dark;
+  background-color: $color-gold;
+}
+
+.btn:active {
+  font-weight: 700;
+  background-image: radial-gradient(ellipse farthest-corner at 70% 70%, $color-gold, $color-white);
+}
+
+/*---------- end light-theme ----------*/
 
 /*---------- header ----------*/
 .menu-burger,
@@ -369,7 +407,7 @@ html {
   background-color: transparent;
 }
 @media (any-pointer: fine) and (any-hover: hover) {
-  .portfolio-tabs__btn:hover {
+  .portfolio-tabs__btn:hover:not(.active) {
     border: 2px solid $color-white;
   }
 }
@@ -1064,7 +1102,7 @@ html {
   /*---------- contacts ----------*/
   .contacts-wraper {
     width: 100%;
-    padding: 30px 10px;
+    padding: 30px 10px 19px;
     background: rgba(0, 0, 0, 0.4);
   }
 }
