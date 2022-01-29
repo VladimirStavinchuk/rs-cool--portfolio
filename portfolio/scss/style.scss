@@ -239,7 +239,6 @@ html {
 
 .icon-theme {
   margin-top: 20px;
-  margin-right: 21px;
   margin-left: 30px;
   width: 45px;
   height: 45px;
@@ -586,7 +585,7 @@ html {
   color: $color-dark;
 }
 
-.contacts-item .contacts-item__textarea {
+.contacts-item.contacts-item__textarea {
   height: 100px;
   resize: none;
   line-height: 40px;
@@ -749,7 +748,7 @@ html {
   }
 
   .language__list {
-    padding-right: 110px;
+    padding-right: 19px;
   }
 
   .language__link {
@@ -759,6 +758,11 @@ html {
 
   .language__link:last-of-type {
     padding-right: 7px;
+  }
+
+  .icon-theme {
+    margin-right: 124px;
+    margin-left: 0px;
   }
 
   .main__inner {
