@@ -4,6 +4,7 @@
 // 3) возможно переверстать футер
 // 4) возможно адаптив фоновых картинок переделать
 // 5) картинки для мелких экранов заменить на меньшие по размеру
+// 6) значок бкргер меню при светлой теме сделать золотым
 
 @font-face {
   font-family: Merriweather;
@@ -204,11 +205,30 @@ html {
   background-color: $color-gold;
 }
 
-.btn:active {
+.body.light-theme .btn:active {
   font-weight: 700;
   background-image: radial-gradient(ellipse farthest-corner at 70% 70%, $color-gold, $color-white);
 }
 
+@media (max-width: 768px) {
+  .body.light-theme .nav__list.active {
+    background-color: $color-white;
+  }
+
+  .body.light-theme .nav__list.active .nav__link {
+    color: $color-dark;
+  }
+
+  .body.light-theme:not(.open) .nav__link {
+    color: $color-white;
+  }
+
+  .body.light-theme .menu-btn.active > span,
+  .body.light-theme .menu-btn.active > span::before,
+  .body.light-theme .menu-btn.active > span::after {
+    background-color: $color-dark;
+  }
+}
 /*---------- end light-theme ----------*/
 
 /*---------- header ----------*/
@@ -930,6 +950,7 @@ html {
     background-color: $color-white;
     transition-duration: 0.25s;
   }
+
   .menu-btn > span::before {
     content: "";
     top: -12px;
@@ -993,8 +1014,7 @@ html {
   .nav__item {
     display: block;
     width: 100%;
-    // padding: 9px 24px 7px;
-    padding: 4px 13px 4px;
+    padding: 1px 13px 9px;
     color: $color-white;
     font-family: "Inter", sans-serif;
     font-size: $font-burger;
