@@ -99,53 +99,54 @@ function getTranslate () {
   });
 }
 
+// !Theme
+// let theme = 'dark';
+let theme;
+
+theme = localStorage.getItem ('theme');
+console.log ('storage=do ', theme);
+
+theme == null ? (theme = 'dark') : 0;
+console.log ('storage=pos ', theme);
+
+setTheme ();
+console.log ('storage= ', theme);
+
 function listеnTheme () {
   const iconTheme = document.querySelector ('.icon-theme');
   iconTheme.addEventListener ('click', () => {
-    iconTheme.classList.toggle ('light-theme');
-    document.querySelector ('.body').classList.toggle ('light-theme');
-    setTheme ();
+    theme === 'dark' ? (theme = 'light') : (theme = 'dark');
+    console.log ('listеnTheme= ', theme);
+    setTheme (theme);
   });
 }
 
-function setTheme (newTheme) {
-  console.log (newTheme, typeof newTheme);
+function setTheme () {
   const iconTheme = document.querySelector ('.icon-theme');
+  console.log (theme);
 
-  if (iconTheme.classList.contains ('light-theme') || newTheme === true) {
-    iconTheme.src = './assets/img/icon/day_icon.svg';
+  if (theme === 'light') {
+    iconTheme.src = './assets/img/icon/night_icon.svg';
     iconTheme.classList.add ('light-theme');
     document.querySelector ('.body').classList.add ('light-theme');
-    setLocalStorage (false);
+    // theme = 'light';
+    setLocalStorage (theme);
+    // console.log (theme, '   l');
   } else {
-    iconTheme.src = './assets/img/icon/night_icon.svg';
-    setLocalStorage (true);
+    iconTheme.src = './assets/img/icon/day_icon.svg';
+    iconTheme.classList.remove ('light-theme');
+    document.querySelector ('.body').classList.remove ('light-theme');
+    // theme = 'dark';
+    setLocalStorage (theme);
+    // console.log (theme, '   d');
   }
+}
 
-  // if (iconTheme.classList.contains ('light-theme') || newTheme === true) {
-  //   iconTheme.src = './assets/img/icon/night_icon.svg';
-  //   iconTheme.classList.add ('light-theme');
-  //   setLocalStorage (false);
-  // } else {
-  //   iconTheme.src = './assets/img/icon/day_icon.svg';
-  //   setLocalStorage (true);
-  // }
+function setLocalStorage () {
+  localStorage.setItem ('theme', theme);
 }
 
 listеnTheme ();
-
-function setLocalStorage (lightTheme) {
-  localStorage.setItem ('theme', lightTheme);
-}
-
-function getLocalStorage () {
-  if (localStorage.getItem ('theme')) {
-    const lightThemeSaves = Boolean (localStorage.getItem ('theme'));
-    setTheme (lightThemeSaves);
-  }
-}
-window.addEventListener ('load', getLocalStorage);
-
 getBurgerMenu ();
 getPortfolioSeason ();
 getTranslate ();
