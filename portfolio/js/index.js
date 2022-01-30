@@ -40,6 +40,7 @@ function getBurgerMenu () {
 }
 
 // Portfolio Season
+// todo добавить при загрузке или кнопке запоминание последней активной, или делать активной кнопку соответствующую сезону.
 function getPortfolioSeason () {
   const portfolioTabs = document.querySelector ('.portfolio-tabs');
   const portfolioBtns = document.querySelectorAll ('.portfolio-tabs__btn');
@@ -71,10 +72,18 @@ function getTranslate () {
   const languageList = document.querySelector ('.language__list');
   const languageLink = document.querySelectorAll ('.language__link');
   const bodyLanguag = document.querySelectorAll ('[data-i18]');
-  let language = '';
+  let language;
 
   language = localStorage.getItem ('lang');
-  language == null ? (language = 'en') : 0;
+  language === null ? (language = 'en') : 0;
+  if (language === 'ru') {
+    languageLink[0].classList.remove ('active');
+    languageLink[1].classList.add ('active');
+  } else {
+    languageLink[0].classList.add ('active');
+    languageLink[1].classList.remove ('active');
+  }
+
   setLanguage ();
 
   languageList.addEventListener ('click', function (event) {
@@ -95,7 +104,7 @@ function getTranslate () {
       if (i18Obj[language][element.dataset.i18]) {
         if (element.placeholder) {
           element.placeholder = i18Obj[language][element.dataset.i18];
-          element.textContent = '';
+          // element.textContent = '';
         } else {
           element.textContent = i18Obj[language][element.dataset.i18];
         }
@@ -108,7 +117,6 @@ function getTranslate () {
 let theme;
 
 theme = localStorage.getItem ('theme');
-
 theme == null ? (theme = 'dark') : 0;
 
 setTheme ();
