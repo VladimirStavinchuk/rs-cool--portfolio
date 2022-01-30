@@ -72,9 +72,10 @@ function getTranslate () {
   const languageLink = document.querySelectorAll ('.language__link');
   const bodyLanguag = document.querySelectorAll ('[data-i18]');
   let language = '';
-  languageLink[0].classList.contains ('active')
-    ? (language = 'en')
-    : (language = 'ru');
+
+  language = localStorage.getItem ('lang');
+  language == null ? (language = 'en') : 0;
+  setLanguage ();
 
   languageList.addEventListener ('click', function (event) {
     if (event.target.classList.contains ('language__link')) {
@@ -83,62 +84,56 @@ function getTranslate () {
         changeClassActive (languageLink[1]);
         changeClassActive (languageLink[0]);
         language === 'en' ? (language = 'ru') : (language = 'en');
+        localStorage.setItem ('lang', language);
+        setLanguage ();
       }
-
-      bodyLanguag.forEach (element => {
-        if (i18Obj[language][element.dataset.i18]) {
-          if (element.placeholder) {
-            element.placeholder = i18Obj[language][element.dataset.i18];
-            element.textContent = '';
-          } else {
-            element.textContent = i18Obj[language][element.dataset.i18];
-          }
-        }
-      });
     }
   });
+
+  function setLanguage () {
+    bodyLanguag.forEach (element => {
+      if (i18Obj[language][element.dataset.i18]) {
+        if (element.placeholder) {
+          element.placeholder = i18Obj[language][element.dataset.i18];
+          element.textContent = '';
+        } else {
+          element.textContent = i18Obj[language][element.dataset.i18];
+        }
+      }
+    });
+  }
 }
 
-// !Theme
-// let theme = 'dark';
+// changeTheme
 let theme;
 
 theme = localStorage.getItem ('theme');
-console.log ('storage=do ', theme);
 
 theme == null ? (theme = 'dark') : 0;
-console.log ('storage=pos ', theme);
 
 setTheme ();
-console.log ('storage= ', theme);
 
 function listеnTheme () {
   const iconTheme = document.querySelector ('.icon-theme');
   iconTheme.addEventListener ('click', () => {
     theme === 'dark' ? (theme = 'light') : (theme = 'dark');
-    console.log ('listеnTheme= ', theme);
     setTheme (theme);
   });
 }
 
 function setTheme () {
   const iconTheme = document.querySelector ('.icon-theme');
-  console.log (theme);
 
   if (theme === 'light') {
     iconTheme.src = './assets/img/icon/night_icon.svg';
     iconTheme.classList.add ('light-theme');
     document.querySelector ('.body').classList.add ('light-theme');
-    // theme = 'light';
     setLocalStorage (theme);
-    // console.log (theme, '   l');
   } else {
     iconTheme.src = './assets/img/icon/day_icon.svg';
     iconTheme.classList.remove ('light-theme');
     document.querySelector ('.body').classList.remove ('light-theme');
-    // theme = 'dark';
     setLocalStorage (theme);
-    // console.log (theme, '   d');
   }
 }
 
