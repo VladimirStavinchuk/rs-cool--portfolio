@@ -1,13 +1,10 @@
-// ! бургер меню:
-// * поправить фон бургер меню. Возможно из-за прокрутки справа полоса.
-//  размер меню при переходе с 780 на 620 сделать на весь экран
-
-// todo: После сдачи (когда для себябуду макет переделывать:
+// todo: После сдачи (когда для себя буду макет переделывать:
 // 1) при экранах 768 и меньше сделать плашку с верхним меню сверху постоянную или прятать кнопку меню, а взамен показывать стрелочку в верху для его вызова https://www.youtube.com/watch?v=zs1r8yafTE8.
 // 2) убрать скрин 767
 // 3) возможно переверстать футер
 // 4) возможно адаптив фоновых картинок переделать
 // 5) картинки для мелких экранов заменить на меньшие по размеру
+// 6) значок бкргер меню при светлой теме сделать золотым
 
 @font-face {
   font-family: Merriweather;
@@ -35,22 +32,6 @@
 @import "normalize.scss";
 @import "variables.scss";
 
-/*---------- visually-hidden ----------*/
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-/*---------- end visually-hidden ----------*/
-
 /*---------- general properties ----------*/
 
 html {
@@ -63,7 +44,7 @@ html {
   }
 }
 
-body {
+.body {
   font-family: "Inter", sans-serif;
   font-size: $font-text;
   font-style: normal;
@@ -73,8 +54,13 @@ body {
   background-color: $color-dark;
 }
 
-body.lock {
+.body.open {
   overflow: hidden;
+}
+
+.menu-burger,
+.body.lite-theme {
+  background-color: $color-white;
 }
 
 .container {
@@ -138,7 +124,7 @@ body.lock {
   -o-transition: 0.3s;
 }
 @media (any-pointer: fine) and (any-hover: hover) {
-  .btn:hover {
+  .btn:hover:not(.active) {
     color: $color-white;
     opacity: 0.8;
   }
@@ -181,6 +167,70 @@ body.lock {
 }
 /*---------- end general properties ----------*/
 
+/*---------- light-theme ----------*/
+.body.light-theme {
+  background-color: $color-white;
+}
+
+.body.light-theme .footer__inner {
+  background-color: $color-dark;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.body.light-theme .portfolio-tabs__btn,
+.body.light-theme .section__title,
+.body.light-theme .skills-wrap__title,
+.body.light-theme .skills-wrap__text,
+.body.light-theme .price__title,
+.body.light-theme .price__item-description {
+  color: $color-dark;
+}
+
+.body.light-theme .portfolio-tabs__btn.active {
+  color: $color-white;
+}
+
+@media (any-pointer: fine) and (any-hover: hover) {
+  .body.light-theme .portfolio-tabs__btn:hover:not(.active) {
+    border: 2px dashed;
+    color: $color-gold;
+  }
+}
+
+.body.light-theme .portfolio-tabs__btn.active {
+  color: $color-dark;
+  background-color: $color-gold;
+}
+
+.body.light-theme .btn:active {
+  font-weight: 700;
+  background-image: radial-gradient(ellipse farthest-corner at 70% 70%, $color-gold, $color-white);
+}
+
+@media (max-width: 768px) {
+  .body.light-theme .nav__list.active {
+    background-color: $color-white;
+  }
+
+  .body.light-theme .nav__list.active .nav__link {
+    color: $color-dark;
+  }
+
+  .body.light-theme:not(.open) .nav__link {
+    color: $color-white;
+  }
+
+  .body.light-theme .menu-btn.active > span,
+  .body.light-theme .menu-btn.active > span::before,
+  .body.light-theme .menu-btn.active > span::after {
+    background-color: $color-dark;
+  }
+}
+/*---------- end light-theme ----------*/
+
 /*---------- header ----------*/
 .menu-burger,
 .menu-btn {
@@ -206,12 +256,39 @@ body.lock {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
+
+.icon-theme {
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  color: $color-white;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
 @media (any-pointer: fine) and (any-hover: hover) {
   .logo:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
   }
 }
+
 .logo:active {
+  filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  -webkit-filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+@media (any-pointer: fine) and (any-hover: hover) {
+  .icon-theme:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
+}
+
+.icon-theme:active {
   filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
   -webkit-filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
@@ -349,7 +426,7 @@ body.lock {
   background-color: transparent;
 }
 @media (any-pointer: fine) and (any-hover: hover) {
-  .portfolio-tabs__btn:hover {
+  .portfolio-tabs__btn:hover:not(.active) {
     border: 2px solid $color-white;
   }
 }
@@ -528,7 +605,7 @@ body.lock {
   color: $color-dark;
 }
 
-.contacts-item.contacts__item__textarea {
+.contacts-item.contacts-item__textarea {
   height: 100px;
   resize: none;
   line-height: 40px;
@@ -691,7 +768,7 @@ body.lock {
   }
 
   .language__list {
-    padding-right: 110px;
+    padding-right: 19px;
   }
 
   .language__link {
@@ -701,6 +778,11 @@ body.lock {
 
   .language__link:last-of-type {
     padding-right: 7px;
+  }
+
+  .icon-theme {
+    margin-right: 124px;
+    margin-left: 0px;
   }
 
   .main__inner {
@@ -868,6 +950,7 @@ body.lock {
     background-color: $color-white;
     transition-duration: 0.25s;
   }
+
   .menu-btn > span::before {
     content: "";
     top: -12px;
@@ -931,8 +1014,7 @@ body.lock {
   .nav__item {
     display: block;
     width: 100%;
-    // padding: 9px 24px 7px;
-    padding: 4px 13px 4px;
+    padding: 1px 13px 9px;
     color: $color-white;
     font-family: "Inter", sans-serif;
     font-size: $font-burger;
@@ -960,8 +1042,8 @@ body.lock {
   }
 }
 
-/*+++++++++++++++++++++++ screen 640 ++++++++++++++++++++++++++++*/
-@media (max-width: 640px) {
+/*+++++++++++++++++++++++ screen 620 ++++++++++++++++++++++++++++*/
+@media (max-width: 620px) {
   /*---------- geniral ----------*/
   $font-big-title: 28px;
   $font-title: 32px;
@@ -1004,7 +1086,6 @@ body.lock {
     height: 40px;
   }
 
-  .nav__list,
   .language__list {
     margin-top: 15px;
   }
@@ -1045,7 +1126,7 @@ body.lock {
   /*---------- contacts ----------*/
   .contacts-wraper {
     width: 100%;
-    padding: 30px 10px;
+    padding: 30px 10px 19px;
     background: rgba(0, 0, 0, 0.4);
   }
 }
@@ -1096,7 +1177,6 @@ body.lock {
     height: 30px;
   }
 
-  .nav__list,
   .language__list {
     margin-top: 5px;
     font-size: $font-text;
