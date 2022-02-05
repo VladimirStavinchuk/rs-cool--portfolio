@@ -125,6 +125,146 @@ h6 {
 5. title, alt
 6. role, aria-*
 */
+/* 
+    порядок определения стилей:
+1 позиционирование
+2 блочная модель (размеры, отступы)
+3 типографика (свойства шрифта)
+4 оформление (цвет фона, тень)
+5 анимация 
+*/
+/* 
+• порядок определения атрибутов:
+1. class
+2. id, name
+3. data-*
+4. scr, for, type, href, value
+5. title, alt
+6. role, aria-*
+*/
+/*---------- video player ----------*/
+.video-player {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  font-size: 10px;
+  line-height: 3em;
+}
+
+.video-player__video {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.video-player__controls {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.video-player__slider_video {
+  flex-grow: 1 1 auto;
+  margin-right: 30px;
+}
+
+.video-player__slider_sound {
+  max-width: 200px;
+}
+
+.video-player__hover-btn {
+  position: absolute;
+  background-color: transparent;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.video-player__hover-btn .play {
+  display: none;
+}
+
+.video-player__btn {
+  width: 4em;
+  height: 4em;
+  margin: auto 1rem;
+  cursor: pointer;
+}
+
+.video-player__btn-stop {
+  margin-right: 2rem;
+}
+
+.progress-bar__slider {
+  margin: auto;
+  border: solid 1px #bdae82;
+  border-radius: 8px;
+  height: 10px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.progress-bar__slider::-moz-range-track {
+  margin: auto;
+  border: solid 1px #bdae82;
+  border-radius: 8px;
+  height: 10px;
+  width: 100%;
+  outline: none;
+  -moz-transition: background 450ms ease-in;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.progress-bar__slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background-color: #bdae82;
+  border: 2px solid #ffffff;
+}
+
+.progress-bar__slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background-color: #bdae82;
+  border: 2px solid #ffffff;
+}
+
+.video-player__slider_video {
+  background: linear-gradient(to right, #bdae82 0%, #bdae82 0%, #b3b3b3 0%, #b3b3b3 100%);
+}
+
+.video-player__slider_sound {
+  margin-right: 10px;
+  background: linear-gradient(to right, #bdae82 0%, #bdae82 0%, #b3b3b3 0%, #b3b3b3 100%);
+}
+
+@media (any-pointer: fine) and (any-hover: hover) {
+  .video-player__hover-btn:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+    -webkit-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
+
+  .video-player__hover-btn:active {
+    filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+    -webkit-filter: invert(60%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
+}
+/*---------- end video-player ----------*/
 /*---------- general properties ----------*/
 html {
   scroll-behavior: smooth;
@@ -1410,4 +1550,4 @@ html {
   /*---------- video ----------*/
   /*---------- contacts ----------*/
   /*---------- footer ----------*/
-}
+}/*# sourceMappingURL=style.css.map */

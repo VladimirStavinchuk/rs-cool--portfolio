@@ -1,15 +1,5 @@
 // todo Самостоятельно напишите функцию preloadImages() для кеширования изображений из всех папок с временами года. https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio-part3-hints.md
 import i18Obj from './translate.js';
-// const arrChangeTheme = [
-//   '.body',
-//   // 'menu-btn',
-//   // 'burgerItem',
-//   '.section__title',
-//   '.skills-wrap__title',
-//   '.skills-wrap__text',
-//   'price__title',
-//   'price__item-description',
-// ];
 
 const changeClassActive = function (className) {
   className.classList.toggle ('active');
@@ -154,33 +144,145 @@ getBurgerMenu ();
 getPortfolioSeason ();
 getTranslate ();
 
+// custom video player
+
+function videoPlayerControls () {
+  const videoPlayer = document.querySelector ('.video-player');
+  const video = videoPlayer.querySelector ('.video-player__video');
+  const progressVideo = videoPlayer.querySelector (
+    '.video-player__slider_video'
+  );
+  const progressSound = videoPlayer.querySelector (
+    '.video-player__slider_sound'
+  );
+  const btnPlayHover = videoPlayer.querySelector (
+    '.video-player__hover-btn-img'
+  );
+  const btnPlayPause = videoPlayer.querySelector ('.video-player__btn-play');
+  const btnStop = videoPlayer.querySelector ('.video-player__btn-stop');
+  const btnMute = videoPlayer.querySelector ('.video-player__btn-mute');
+  let progressTimeVideo = 0;
+  let saveVolumeVideo = 0.7;
+  let isPlay = false;
+
+  changeSound (saveVolumeVideo);
+
+  seekingProgressVideo ();
+  seekingVideoPlayer ();
+  seekingVolumeVideo ();
+
+  function seekingVideoPlayer () {
+    videoPlayer.addEventListener ('click', function (e) {
+      const clickBtn = e.target.classList;
+
+      if (
+        clickBtn.contains ('video-player__btn-play') ||
+        clickBtn.contains ('video-player__hover-btn-img') ||
+        (clickBtn.contains ('video-player__video') && isPlay)
+      ) {
+        isPlay === false ? playVideo () : pauseVideo ();
+      } else if (clickBtn.contains ('video-player__btn-mute')) {
+        video.volume > 0 ? offSoundVideo () : onSoundVideo ();
+      } else if (clickBtn.contains ('video-player__btn-stop')) {
+        stopVideo ();
+      }
+    });
+  }
+
+  function seekingProgressVideo () {
+    progressVideo.addEventListener ('input', function () {
+      video.currentTime = this.value * video.duration / 100;
+      progressVideo.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${this.value}%, #b3b3b3 ${this.value}%, #b3b3b3 100%)`;
+    });
+
+    video.addEventListener ('timeupdate', function () {
+      progressTimeVideo = this.currentTime * 100 / video.duration;
+      progressVideo.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${progressTimeVideo}%, #b3b3b3 ${progressTimeVideo}%, #b3b3b3 100%)`;
+      progressVideo.value = progressTimeVideo;
+    });
+  }
+
+  function seekingVolumeVideo () {
+    progressSound.addEventListener ('input', function () {
+      video.volume = this.value / 100;
+      video.volume <= 0
+        ? (btnMute.src = './assets/img/svg/mute.svg')
+        : (btnMute.src = './assets/img/svg/volume.svg');
+      progressSound.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${this.value}%, #b3b3b3 ${this.value}%, #b3b3b3 100%)`;
+    });
+  }
+
+  function playVideo () {
+    video.play ();
+    isPlay = true;
+    btnPlayHover.classList.add ('play');
+    btnPlayPause.src = './assets/img/svg/pause.svg';
+    btnStop.src = './assets/img/svg/stop.svg';
+  }
+
+  function pauseVideo () {
+    video.pause ();
+    isPlay = false;
+    btnPlayHover.classList.remove ('play');
+    btnPlayPause.src = './assets/img/svg/play.svg';
+    btnStop.src = './assets/img/svg/previous.svg';
+  }
+
+  function stopVideo () {
+    video.pause ();
+    video.currentTime > 0 ? (video.currentTime = 0) : 0;
+    isPlay = false;
+    btnPlayPause.src = './assets/img/svg/play.svg';
+    btnPlayHover.classList.remove ('play');
+  }
+
+  function offSoundVideo () {
+    saveVolumeVideo = video.volume;
+    video.volume = 0;
+    changeSound (0);
+  }
+
+  function onSoundVideo () {
+    video.volume = saveVolumeVideo;
+    changeSound (saveVolumeVideo);
+  }
+
+  function changeSound (currentSound) {
+    video.volume = currentSound;
+    let currentSoundProgress = currentSound * 100;
+    progressSound.value = currentSound * 100;
+    progressSound.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${currentSoundProgress}%, #b3b3b3 ${currentSoundProgress}%, #b3b3b3 100%)`;
+    currentSound <= 0
+      ? (btnMute.src = './assets/img/svg/mute.svg')
+      : (btnMute.src = './assets/img/svg/volume.svg');
+  }
+}
+
+videoPlayerControls ();
+
 console.log (
   `
-Самооценка 75/75
+Самооценка 60/60
 
-1) Смена изображений в секции portfolio +25
-* при кликах по кнопкам Winter, Spring, Summer, Autumn в секции portfolio отображаются изображения из папки с соответствующим названием +20
-* кнопка, по которой кликнули, становится активной т.е. выделяется стилем. Другие кнопки при этом будут неактивными +5
+  Вёрстка +10
+[x] вёрстка видеоплеера: 
+* есть само видео, в панели управления есть кнопка Play/Pause, прогресс-бар, кнопка Volume/Mute, регулятор громкости звука +5
+* в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс + 5
 
-2) Перевод страницы на два языка +25
-* при клике по надписи ru англоязычная страница переводится на русский язык +10
-* при клике по надписи en русскоязычная страница переводится на английский язык +10
-* надписи en или ru, соответствующие текущему языку страницы, становятся активными т.е. выделяются стилем +5
+[x] Кнопка Play/Pause на панели управления +10
+* при клике по кнопке Play/Pause запускается или останавливается проигрывание видео +5
+* внешний вид и функционал кнопки изменяется в зависимости от того, проигрывается ли видео в данный момент + 5
 
-3) Переключение светлой и тёмной темы +25
-На страницу добавлен переключатель при клике по которому:
-* тёмная тема приложения сменяется светлой +10
-* светлая тема приложения сменяется тёмной +10Внешний вид тёмной темы соответствует макету, который верстали в предыдущих частях задания, внешний вид светлой темы соответствует одному из двух вариантов макетов на выбор. Баллы за оба варианта одинаковые, выбирайте тот, который больше нравится.
-Вариант первый. Блоки и секции header, hero, contacts, footer остались без изменений, в оставшихся секциях цвет фона и шрифта поменялись местами: фон стал белым, шрифт черным Макет в figma - светлая тема - 1
-Вариант второй. Изменения затронули все блоки и секции, в том числе поменялись фоновые изображения и есть два варианта меню на выбор Макет в figma - светлая тема - 2
-* после смены светлой и тёмной темы интерактивные элементы по-прежнему изменяют внешний вид при наведении и клике и при этом остаются видимыми на странице (нет ситуации с белым шрифтом на белом фоне) +5
+[x] Прогресс - бар отображает прогресс проигрывания видео.При перемещении ползунка прогресс - бара вручную меняется текущее время проигрывания видео.Разный цвет прогресс - бара до и после ползунка + 10
 
-+ Дополнительный функционал: 
-* выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы +5
+[x] При перемещении ползунка регулятора громкости звука можно сделать звук громче или тише.Разный цвет регулятора громкости звука до и после ползунка + 10
 
-+ Дополнительный функционал: 
-* сложные эффекты для кнопок при наведении и/или клике +5
-Для получения максимального балла за пункт требований достаточно добавить кнопкам только один эффект
-Можно выбрать любой из предложенных эффектов или добавить свой собственный равноценный им по сложности
+[x] При клике по кнопке Volume / Mute можно включить или отключить звук.Одновременно с включением / выключением звука меняется внешний вид кнопки.Также внешний вид кнопки меняется, если звук включают или выключают перетягиванием регулятора громкости звука от нуля или до нуля + 10
+
+[x] Кнопка Play/Pause в центре видео +10
+есть кнопка Play/Pause в центре видео при клике по которой запускается видео и отображается панель управления +5
+когда видео проигрывается, кнопка Play / Pause в центре видео скрывается, когда видео останавливается, кнопка снова отображается + 5
+
+[x] Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10
 `
 );
