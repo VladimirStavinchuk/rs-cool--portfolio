@@ -1,3 +1,16 @@
+// ! решить проблему с кнопками на тачпаде так https://qna.habr.com/q/948309
+// @media (hover: hover) and (pointer: fine) {
+//   .btn-hover:hover {
+//     background: yellow;
+//   }
+// }
+
+// @media (hover: none) and (pointer: coarse) {
+//   .btn-sensor:active {
+//     background: yellow;
+//   }
+// }
+
 // todo: После сдачи (когда для себя буду макет переделывать:
 // 1) при экранах 768 и меньше сделать плашку с верхним меню сверху постоянную или прятать кнопку меню, а взамен показывать стрелочку в верху для его вызова https://www.youtube.com/watch?v=zs1r8yafTE8.
 // 2) убрать скрин 767
@@ -31,6 +44,7 @@
 
 @import "normalize.scss";
 @import "variables.scss";
+@import "videoplayer.scss";
 
 /*---------- general properties ----------*/
 
