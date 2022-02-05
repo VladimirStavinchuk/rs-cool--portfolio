@@ -192,7 +192,7 @@ function videoPlayerControls () {
   }
 
   function seekingProgressVideo () {
-    progressVideo.addEventListener ('change', function () {
+    progressVideo.addEventListener ('input', function () {
       video.currentTime = this.value * video.duration / 100;
       progressVideo.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${this.value}%, #b3b3b3 ${this.value}%, #b3b3b3 100%)`;
     });
@@ -205,7 +205,7 @@ function videoPlayerControls () {
   }
 
   function seekingVolumeVideo () {
-    progressSound.addEventListener ('change', function () {
+    progressSound.addEventListener ('input', function () {
       video.volume = this.value / 100;
       progressSound.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${this.value}%, #b3b3b3 ${this.value}%, #b3b3b3 100%)`;
     });
