@@ -162,10 +162,8 @@ function videoPlayerControls () {
   const btnStop = videoPlayer.querySelector ('.video-player__btn-stop');
   const btnMute = videoPlayer.querySelector ('.video-player__btn-mute');
   let progressTimeVideo = 0;
-  // let progressVolumeVideo = 50;
   let saveVolumeVideo = 0.7;
   let isPlay = false;
-  // let isMute = false;
 
   changeSound (saveVolumeVideo);
 
@@ -207,6 +205,9 @@ function videoPlayerControls () {
   function seekingVolumeVideo () {
     progressSound.addEventListener ('input', function () {
       video.volume = this.value / 100;
+      video.volume <= 0
+        ? (btnMute.src = './assets/img/svg/mute.svg')
+        : (btnMute.src = './assets/img/svg/volume.svg');
       progressSound.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${this.value}%, #b3b3b3 ${this.value}%, #b3b3b3 100%)`;
     });
   }
@@ -242,25 +243,15 @@ function videoPlayerControls () {
   }
 
   function onSoundVideo () {
-    console.log ('onSoundVideo saveVolumeVideo DO =  ' + saveVolumeVideo);
-    console.log ('onSoundVideo video.volume DO =  ' + video.volume);
     video.volume = saveVolumeVideo;
-    // isMute = false;
-    // btnMute.src = './assets/img/svg/volume.svg';
     changeSound (saveVolumeVideo);
-    console.log ('onSoundVideo saveVolumeVideo =  ' + saveVolumeVideo);
-    console.log ('onSoundVideo video.volume =  ' + video.volume);
-    // return saveVolumeVideo;
   }
 
   function changeSound (currentSound) {
     video.volume = currentSound;
     let currentSoundProgress = currentSound * 100;
-    // console.log ('saveVolumeVideo  ' + saveVolumeVideo);
-    // console.log ('progressVolumeVideo  ' + progressVolumeVideo);
     progressSound.value = currentSound * 100;
     progressSound.style.background = `linear-gradient(to right, #bdae82 0%, #bdae82 ${currentSoundProgress}%, #b3b3b3 ${currentSoundProgress}%, #b3b3b3 100%)`;
-    // video.volume = progressVolumeVideo / 100;
     currentSound <= 0
       ? (btnMute.src = './assets/img/svg/mute.svg')
       : (btnMute.src = './assets/img/svg/volume.svg');
@@ -268,3 +259,30 @@ function videoPlayerControls () {
 }
 
 videoPlayerControls ();
+
+console.log (
+  `
+Самооценка 60/60
+
+  Вёрстка +10
+[x] вёрстка видеоплеера: 
+* есть само видео, в панели управления есть кнопка Play/Pause, прогресс-бар, кнопка Volume/Mute, регулятор громкости звука +5
+* в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс + 5
+
+[x] Кнопка Play/Pause на панели управления +10
+* при клике по кнопке Play/Pause запускается или останавливается проигрывание видео +5
+* внешний вид и функционал кнопки изменяется в зависимости от того, проигрывается ли видео в данный момент + 5
+
+[x] Прогресс - бар отображает прогресс проигрывания видео.При перемещении ползунка прогресс - бара вручную меняется текущее время проигрывания видео.Разный цвет прогресс - бара до и после ползунка + 10
+
+[x] При перемещении ползунка регулятора громкости звука можно сделать звук громче или тише.Разный цвет регулятора громкости звука до и после ползунка + 10
+
+[x] При клике по кнопке Volume / Mute можно включить или отключить звук.Одновременно с включением / выключением звука меняется внешний вид кнопки.Также внешний вид кнопки меняется, если звук включают или выключают перетягиванием регулятора громкости звука от нуля или до нуля + 10
+
+[x] Кнопка Play/Pause в центре видео +10
+есть кнопка Play/Pause в центре видео при клике по которой запускается видео и отображается панель управления +5
+когда видео проигрывается, кнопка Play / Pause в центре видео скрывается, когда видео останавливается, кнопка снова отображается + 5
+
+[x] Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10
+`
+);
